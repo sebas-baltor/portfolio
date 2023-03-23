@@ -5,7 +5,7 @@ const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
 export default function Navbar() {
   return (
     <nav
-      className={`${sacramento.className}  w-full bg-secondary sticky top-0 px-4 py-2 text-white text-xl md:text-4xl`}
+      className={`${sacramento.className}  w-full bg-secondary sticky top-0 px-4 py-2 text-white text-xl md:text-4xl z-20`}
     >
       <div
         className={`${styles.innerWidth} w-full mx-auto flex justify-between`}
