@@ -8,7 +8,7 @@ const sacramento = Sacramento({weight:"400",subsets:["latin"]})
 export const TypingText = ({title}:{title:string}) => (
     <motion.p
       variants={typing}
-      className={`${sacramento.className} text-4xl lg:text-6xl text-primary text-center font-semibold`}
+      className={`${sacramento.className} text-4xl lg:text-6xl text-primary text-center font-semibold `}
       initial="hidden"
       whileInView="visible"
     >

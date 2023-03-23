@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar";
 import Main from "@/components/home/Main";
 import Skills from "@/components/home/Skills";
 import Experience from "@/components/home/Experience";
+import Contact from "@/components/home/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -13,7 +15,8 @@ export default function Home() {
       <Navbar />
       <Skills/>
       <Experience/>
-      <section className="h-screen">adios</section>
+      <Contact/>
+      <Footer/>
     </>
   );
 }

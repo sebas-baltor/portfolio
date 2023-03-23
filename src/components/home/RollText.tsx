@@ -43,7 +43,7 @@ export default function RollText({ text, baseVelocity = 100 }: RollProps) {
   return (
     <div className="overflow-hidden m-0 whitespace-nowrap flex flex-nowrap line-[0.8] -rotate-6">
       <motion.div
-        className="text-6xl flex whitespace-nowrap flex-nowrap text-primary-contrast uppercase font-semibold"
+        className="text-8xl flex whitespace-nowrap flex-nowrap text-primary-contrast uppercase font-semibold lg:text-9xl"
         style={{ x }}
       >
         <span className="block mr-10">{text} </span>

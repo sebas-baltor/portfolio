@@ -22,16 +22,16 @@ export default function Main() {
         className={`${styles.flexColCenter} gap-12 absolute top-0 right-0 text-white text-6xl h-screen max-h-screen w-full`}
         style={{ y: scrollY }}
       >
-        <div className={`${styles.flexColCenter} text-white text-4xl`}>
+        <div className={`${styles.flexColCenter} text-white text-4xl lg:text-7xl lg:gap-4`}>
           <span>Hi, my name is</span>
-          <span className="text-6xl font-bold">Sebastián</span>
+          <span className="text-4xl lg:text-7xl font-bold">Sebastián</span>
           <span className="text-center">
             and it would be great if we work together
           </span>
         </div>
         <a
         href="#skills"
-          className={`${sacramento.className} text-white text-4xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast`}
+          className={`${sacramento.className} text-white text-4xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast lg:text-5xl`}
         >
           About me
         </a>
