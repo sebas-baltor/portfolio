@@ -1,11 +1,13 @@
 import styles from "../style/index.js";
-import { Sacramento } from "next/font/google";
+import { Sacramento,Source_Sans_Pro } from "next/font/google";
 
 const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
+const badScript = Source_Sans_Pro({ weight: "400", subsets: ["latin"] });
+
 export default function Navbar() {
   return (
     <nav
-      className={`${sacramento.className}  w-full bg-secondary sticky top-0 px-4 py-2 text-white text-xl md:text-4xl z-20`}
+      className={`${sacramento.className} w-full bg-secondary sticky top-0 px-4 py-2 text-white text-xl md:text-4xl z-20`}
     >
       <div
         className={`${styles.innerWidth} w-full mx-auto flex justify-between`}

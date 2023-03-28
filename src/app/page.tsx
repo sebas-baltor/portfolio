@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import Navbar from "../components/Navbar";
 import Main from "@/components/home/Main";
 import Skills from "@/components/home/Skills";

@@ -1,13 +1,10 @@
 import styles from "@/style";
-import { useRef } from "react";
 import RollText from "./RollText";
 import { motion, useScroll } from "framer-motion";
-import { Sacramento } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { MdDoubleArrow } from "react-icons/md";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-
-
-const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
+const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
 export default function Main() {
   const { scrollY } = useScroll();
@@ -25,7 +22,7 @@ export default function Main() {
             className={`flex flex-col flex-nowrap justify-start text-white text-lg gap-3 md:text-2xl lg:text-4xl lg:gap-4`}
           >
             <span>Hi, my name is</span>
-            <span className="text-6xl lg:text-8xl font-bold text-secondary">
+            <span className={`font-black text-6xl lg:text-8xl text-secondary tracking-widest`}>
               Sebastián
             </span>
             <span className="text-justify">
@@ -35,7 +32,7 @@ export default function Main() {
           </div>
           <a
             href="#skills"
-            className={`${sacramento.className} text-white text-2xl md:text-3xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast lg:text-4xl max-w-max`}
+            className={`text-white text-lg md:text-2xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast lg:text-2xl max-w-max`}
           >
             About me
           </a>

@@ -29,10 +29,10 @@ export default function Contact() {
             />
             <select
               className="px-2 py-3 max-w-xl outline-0 w-full focus:shadow-lg focus:placeholder:text-secondary placeholder:text-primary border-b-2 border-primary focus:border-secondary text-primary focus:text-secondary"
-              placeholder="Budget"
               required
               name="budget"
             >
+              <option value="budget" disabled>budget</option>
               <option value="10,000 -  15,000" >10 - 15</option>
               <option value="10,000 -  15,000" >15 - 20</option>
               <option value="10,000 -  15,000" >25 - 30</option>
@@ -45,9 +45,9 @@ export default function Contact() {
             />
             <button
               type="submit"
-              className={`${sacramento.className} text-white text-lg md:text-3xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast `}
+              className={`text-white text-lg md:text-2xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast `}
             >
-              Enviar
+              enviar
             </button>
           </form>
         </div>

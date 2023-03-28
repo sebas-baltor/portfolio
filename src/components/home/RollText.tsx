@@ -9,6 +9,9 @@ import {
   wrap,
 } from "framer-motion";
 import { useRef } from "react";
+import {Inter} from "next/font/google"
+const inter = Inter({subsets:["latin"]});
+
 
 interface RollProps {
   text: string;
@@ -43,7 +46,7 @@ export default function RollText({ text, baseVelocity = 100 }: RollProps) {
   return (
     <div className="overflow-hidden m-0 whitespace-nowrap flex flex-nowrap line-[0.8] -rotate-6">
       <motion.div
-        className="text-8xl flex whitespace-nowrap flex-nowrap text-primary-contrast uppercase font-semibold lg:text-9xl"
+        className={`${inter.className} text-8xl flex whitespace-nowrap flex-nowrap text-primary-contrast uppercase font-semibold lg:text-9xl`}
         style={{ x }}
       >
         <span className="block mr-10">{text} </span>
