@@ -3,6 +3,7 @@ import { TypingText } from "./TypingText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import { Sacramento } from "next/font/google";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -16,7 +17,7 @@ const responsiveSlider = {
     spaceBetween: 20,
   },
   // when window width is >= 480px
-  480: {
+  700: {
     slidesPerView: 2,
     spaceBetween: 20,
   },
@@ -26,37 +27,6 @@ const responsiveSlider = {
     spaceBetween: 20,
   },
 };
-interface sliderItemProps {
-  uri: string;
-  imgUri: string;
-  alt: string;
-}
-function SliderItem({ uri, imgUri, alt }: sliderItemProps) {
-  return (
-    <SwiperSlide>
-      {({ isActive }) => (
-        <a
-          href={uri}
-          target="_blank"
-          className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
-        >
-          <img
-            src={imgUri}
-            alt={alt}
-            className={`w-full object-cover grayscale  group-hover:grayscale-[50%] group-hover:blur-[1px] ${
-              isActive ? "blur-[2px]" : "blur-[1px]"
-            }`}
-          />
-          <div
-            className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
-          >
-            View
-          </div>
-        </a>
-      )}
-    </SwiperSlide>
-  );
-}
 
 export default function Experience() {
   return (
@@ -66,12 +36,35 @@ export default function Experience() {
           className={`${styles.innerWidth} mx-auto ${styles.flexColCenter} gap-12 h-full`}
         >
           <TypingText title="Experience" />
-          <div className="h-[50vh] w-full">
+          <div className="h-[50vh] w-full relative">
+            <div
+              id="chevron-left"
+              className={`${styles.flexCenter} opacity-40 hidden lg:flex cursor-pointer w-24 rounded-lg h-full bg-gradient-to-l from-transparent to-secondary absolute top-0 left-0 z-10 text-white text-6xl hover:w-28 hover:opacity-60`}
+            >
+              <BiChevronLeft />
+            </div>
+            <div
+              id="chevron-right"
+              className={`${styles.flexCenter} opacity-40 hidden lg:flex cursor-pointer w-24 rounded-lg h-full bg-gradient-to-l from-secondary to-transparent absolute top-0 right-0 z-10 text-white text-6xl hover:w-28 hover:opacity-60`}
+            >
+              <BiChevronRight />
+            </div>
+
             <Swiper
               className="h-full"
               spaceBetween={50}
               slidesPerView={1}
               breakpoints={responsiveSlider}
+              modules={[Pagination, Navigation]}
+              pagination={{
+                clickable: true,
+                bulletActiveClass: "bg-secondary opacity-70",
+              }}
+              navigation={{
+                nextEl: "#chevron-right",
+                prevEl: "#chevron-left",
+              }}
+              autoplay={true}
             >
               <SwiperSlide>
                 {({ isActive }) => (

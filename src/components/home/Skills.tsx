@@ -1,6 +1,21 @@
 import styles from "@/style";
 import { TypingText } from "./TypingText";
+import TagCloud from "TagCloud";
+import {useEffect,useRef} from "react";
+
 export default function Skills() {
+  const sphereContainer = useRef(null);
+  useEffect(()=>{
+    const technologies = [
+      "JavaScript","React","Node","Express","CSS","HTML","SASS","Mongo DB","MYSQL","SQL Server","C#",".Net"
+    ];
+    const options = {
+      radius:150,
+      itemClass:"text-secondary",
+      maxSpeed:"fast"
+    };
+    TagCloud(sphereContainer.current,technologies,options)
+  },[])
   return (
     <section className="bg-light" id="skills">
       <div className={`${styles.paddings} h-screen`}>
@@ -11,15 +26,15 @@ export default function Skills() {
           <div
             className={`flex flex-col md:flex-row justify-center items-center flex-wrap gap-6 w-full`}
           >
-            <p className="w-[250px] md:min-w-[437px] max-w-[500px] text-primary text-lg md:text-2xl text-justify tracking-widest leading-loose">
+            <p className="w-full lg:max-w-[500px] text-primary text-lg md:text-2xl text-justify tracking-widest leading-loose">
               I started developing software in the year 2020, since I love to
               create value out of nothing, and over time I have gained some
               experience of working with some of these technologies.
             </p>
             <div
-              className={`w-[250px] h-[250px] md:h-[437px] md:w-[437px] lg:h-[400px] lg:w-[400px]`}
+            ref={sphereContainer}
             >
-              <div className="bg-secondary rounded-full h-full h-full"></div>
+              
             </div>
           </div>
         </div>
