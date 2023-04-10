@@ -5,12 +5,11 @@ import { useRef } from "react";
 
 export default function Skills() {
   const sphereContainer = useRef<HTMLDivElement>(null);
-  console.log(sphereContainer.current);
   return (
     <section className="bg-light" id="skills">
       <div className={`${styles.paddings} h-screen`}>
         <div
-          className={`${styles.innerWidth} ${styles.flexColCenter} mx-auto h-full gap-12`}
+          className={`${styles.innerWidth} ${styles.flexColCenter} mx-auto h-full gap-12 lg:gap-0`}
         >
           <TypingText title="Skills" />
           <div
@@ -18,7 +17,7 @@ export default function Skills() {
             className={`flex flex-col lg:flex-row justify-center items-center flex-nowrap gap-6 lg:gap-0 w-full`}
           >
             <div className="w-full lg:max-w-[500px] ">
-              <h3 className="text-secondary text-4xl font-black mb-4">Short history...</h3>
+              <h3 className="text-secondary text-2xl lg:text-4xl font-black mb-4">Short history...</h3>
               <p className="text-primary text-lg md:text-2xl text-justify tracking-widest leading-loose">
                 I started developing software in the year 2020, since I love to
                 create value out of nothing, and over time I have gained some
@@ -30,7 +29,7 @@ export default function Skills() {
                 radius:
                   w.innerWidth > 1000 ? w.innerWidth / 6 : w.innerWidth / 3,
                 maxSpeed: "fast",
-                itemClass: "text-primary font-bold tracking-wider",
+                itemClass: "text-primary tracking-wider",
               })}
               onClickOptions={{ passive: true }}
             >

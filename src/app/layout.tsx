@@ -1,7 +1,7 @@
 import '../style/globals.css'
 import { Montserrat } from 'next/font/google'
 
-const inter = Montserrat({weight:"400",subsets:["latin"]});
+const montserrat = Montserrat({weight:"400",subsets:["latin"]});
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='scroll-smooth'>
-      <body className={inter.className}>{children}</body>
+      <body className={montserrat.className}>{children}</body>
     </html>
   )
 }

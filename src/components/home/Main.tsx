@@ -1,10 +1,10 @@
 import styles from "@/style";
 import RollText from "./RollText";
 import { motion, useScroll } from "framer-motion";
-import { Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import { MdDoubleArrow } from "react-icons/md";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
+const inter = Inter({ weight: "900", subsets: ["latin"] });
 
 export default function Main() {
   const { scrollY } = useScroll();
@@ -22,7 +22,7 @@ export default function Main() {
             className={`flex flex-col flex-nowrap justify-start text-white text-lg gap-3 md:text-2xl lg:text-4xl lg:gap-4`}
           >
             <span>Hi, my name is</span>
-            <span className={`font-black text-6xl lg:text-8xl text-secondary tracking-widest`}>
+            <span className={`${inter.className} font-black text-6xl lg:text-8xl text-secondary tracking-widest`}>
               Sebastián
             </span>
             <span className="text-justify">
@@ -32,11 +32,11 @@ export default function Main() {
           </div>
           <a
             href="#skills"
-            className={`text-white text-lg md:text-2xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast lg:text-2xl max-w-max`}
+            className={`text-primary text-lg md:text-2xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast lg:text-2xl max-w-max`}
           >
-            About me
+            about me
           </a>
-          <div className="text-primary-contrast absolute -top-[22rem] -right-0 md:-right-4 z-10 flex flex-col gap-3 items-center text-xl md:text-2xl">
+          <div className="text-primary-contrast absolute -top-[12rem] -right-0 md:-right-4 z-10 flex flex-col gap-3 items-center text-xl md:text-2xl">
             <div className="h-44 w-[3px] rounded bg-primary-contrast"></div>
             <a href="" className="hover:text-secondary">
             <BsGithub className=""/>

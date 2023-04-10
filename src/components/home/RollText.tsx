@@ -12,7 +12,6 @@ import { useRef } from "react";
 import {Inter} from "next/font/google"
 const inter = Inter({subsets:["latin"]});
 
-
 interface RollProps {
   text: string;
   baseVelocity: number;
