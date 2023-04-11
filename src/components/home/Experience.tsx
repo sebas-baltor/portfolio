@@ -8,7 +8,8 @@ import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import { useState } from "react";
+import { Ichevron } from "@/utils/interfaces";
 const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
 const responsiveSlider = {
   // when window width is >= 320px
@@ -28,27 +29,28 @@ const responsiveSlider = {
   },
 };
 
-const Chevron = ({ type }: { type: "right" | "left" }) => {
-  const swiper = useSwiper();
-    return (
-      <div
-        id={`chevron-${type}`}
-        className={`${
-          type == "left"
-            ? swiper.isBeginning
-              ? "hidden"
-              : `${styles.flexCenter} bg-gradient-to-l from-transparent to-secondary top-0 left-0`
-            : swiper.isEnd
+
+const Chevron = ({ type,hiddenSlide }:Ichevron) => {
+  return (
+    <div
+      id={`chevron-${type}`}
+      className={`${
+        type == "left"
+          ? hiddenSlide == "left"
             ? "hidden"
-            : `${styles.flexCenter} bg-gradient-to-l from-secondary to-transparent top-0 right-0`
-        } opacity-40 hidden lg:flex cursor-pointer w-24 rounded-lg h-full absolute z-10 text-white text-6xl hover:w-28 hover:opacity-60`}
-      >
-        {type == "left" ? <BiChevronLeft /> : <BiChevronRight />}
-      </div>
-    );
+            : `${styles.flexCenter} bg-gradient-to-l from-transparent to-secondary top-0 left-0`
+        : hiddenSlide == "right"
+        ? "hidden"
+        : `${styles.flexCenter} bg-gradient-to-l from-secondary to-transparent top-0 right-0`
+      } opacity-40 hidden lg:flex cursor-pointer w-24 rounded-lg h-full absolute z-10 text-white text-6xl hover:w-28 hover:opacity-60`}
+    >
+      {type == "left" ? <BiChevronLeft /> : <BiChevronRight />}
+    </div>
+  );
 };
 
 export default function Experience() {
+  const [hiddenSlide,setHiddenSlide]= useState("left");
   return (
     <section className="bg-light" id="exp">
       <div className={`${styles.paddings} h-screen`}>
@@ -71,22 +73,20 @@ export default function Experience() {
                 nextEl: "#chevron-right",
                 prevEl: "#chevron-left",
               }}
+              onSlideChange={(swiper)=>{
+                if(swiper.isBeginning){
+                  setHiddenSlide("left");
+                  return;
+                }
+                if(swiper.isEnd){
+                  setHiddenSlide("right");
+                  return
+                }
+                setHiddenSlide("");
+              }}
             >
-              <Chevron type="left" />
-              <Chevron type="right" />
-
-              {/* <div
-                id="chevron-left"
-                className={`${styles.flexCenter} opacity-40 hidden lg:flex cursor-pointer w-24 rounded-lg h-full absolute top-0 left-0 z-10 text-white text-6xl hover:w-28 hover:opacity-60`}
-              >
-                <BiChevronLeft />
-              </div>
-              <div
-                id="chevron-right"
-                className={`${styles.flexCenter} opacity-40 hidden lg:flex cursor-pointer w-24 rounded-lg h-full bg-gradient-to-l from-secondary to-transparent absolute top-0 right-0 z-10 text-white text-6xl hover:w-28 hover:opacity-60`}
-              >
-                <BiChevronRight />
-              </div> */}
+              <Chevron type="left" hiddenSlide={hiddenSlide}/>
+              <Chevron type="right" hiddenSlide={hiddenSlide}/>
               <SwiperSlide>
                 {({ isActive }) => (
                   <a
@@ -110,9 +110,6 @@ export default function Experience() {
                 )}
               </SwiperSlide>
 
-
-
-
               <SwiperSlide>
                 {({ isActive }) => (
                   <a
@@ -156,28 +153,8 @@ export default function Experience() {
                     </div>
                   </a>
                 )}
-              </SwiperSlide><SwiperSlide>
-                {({ isActive }) => (
-                  <a
-                    href={"https://sebas-baltor.github.io/plant-web/"}
-                    target="_blank"
-                    className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
-                  >
-                    <img
-                      src={"/exp-1.jpg"}
-                      alt={"plant web"}
-                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
-                        isActive ? "blur-[2px]" : "blur-[1px]"
-                      }`}
-                    />
-                    <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
-                    >
-                      View
-                    </div>
-                  </a>
-                )}
-              </SwiperSlide><SwiperSlide>
+              </SwiperSlide>
+              <SwiperSlide>
                 {({ isActive }) => (
                   <a
                     href={"https://sebas-baltor.github.io/plant-web/"}
@@ -199,18 +176,28 @@ export default function Experience() {
                   </a>
                 )}
               </SwiperSlide>
-
-
-
-
-
-
-
-
-
-
-
-
+              <SwiperSlide>
+                {({ isActive }) => (
+                  <a
+                    href={"https://sebas-baltor.github.io/plant-web/"}
+                    target="_blank"
+                    className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
+                  >
+                    <img
+                      src={"/exp-1.jpg"}
+                      alt={"plant web"}
+                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
+                        isActive ? "blur-[2px]" : "blur-[1px]"
+                      }`}
+                    />
+                    <div
+                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
+                    >
+                      View
+                    </div>
+                  </a>
+                )}
+              </SwiperSlide>
 
               <SwiperSlide>
                 {({ isActive }) => (
