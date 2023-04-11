@@ -38,7 +38,7 @@ export default function Main() {
           </a>
           <div className="text-primary-contrast absolute -top-[12rem] -right-0 md:-right-4 z-10 flex flex-col gap-3 items-center text-xl md:text-2xl">
             <div className="h-44 w-[3px] rounded bg-primary-contrast"></div>
-            <a href="" className="hover:text-secondary">
+            <a href="https://github.com/sebas-baltor" target={"_blank"} className="hover:text-secondary">
             <BsGithub className=""/>
             </a>
             <a href="" className="hover:text-secondary">

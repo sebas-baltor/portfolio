@@ -11,7 +11,7 @@ export default function Footer() {
       >
         <span className={`${sacramento.className}`}>From MX to the 🗺️</span>
         <div className="flex gap-2">
-          <a href="https://github.com" target="_blank" className="hover:text-secondary">
+          <a href="https://github.com/sebas-baltor" target="_blank" className="hover:text-secondary">
             <BsGithub />
           </a>
           <a href="https://linkedin.com" target="_blank" className="hover:text-secondary">
