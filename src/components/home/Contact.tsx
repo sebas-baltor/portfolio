@@ -2,7 +2,7 @@ import styles from "@/style";
 import { TypingText } from "./TypingText";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
-import { Isuscriber } from "@/models/Suscriber";
+import { Isuscriber } from "@/utils/interfaces";
 
 export default function Contact() {
   const initialValues: Isuscriber = {

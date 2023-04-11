@@ -10,12 +10,8 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import {Inter} from "next/font/google"
+import { RollProps } from "@/utils/interfaces";
 const inter = Inter({subsets:["latin"]});
-
-interface RollProps {
-  text: string;
-  baseVelocity: number;
-}
 
 export default function RollText({ text, baseVelocity = 100 }: RollProps) {
   const baseX = useMotionValue(0);

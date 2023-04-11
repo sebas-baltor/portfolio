@@ -1,12 +1,6 @@
 import mongoose, { Schema, model} from "mongoose";
-
-// 1. defining the interface
-export interface Isuscriber {
-    name: string,
-    email: string,
-    budget: number,
-    message?: string
-}
+// 1. importing the interface
+import { Isuscriber } from "@/utils/interfaces";
 // 2. match the schema with the document interface
 const suscriberSchema = new Schema<Isuscriber>({
     name: { type: String, required: true },
