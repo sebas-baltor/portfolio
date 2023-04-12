@@ -9,7 +9,7 @@ export default function Skills() {
     <section className="bg-light" id="skills">
       <div className={`${styles.paddings} h-screen`}>
         <div
-          className={`${styles.innerWidth} ${styles.flexColCenter} mx-auto h-full gap-12 lg:gap-0`}
+          className={`${styles.innerWidth} ${styles.flexColCenter} mx-auto h-full gap-12 lg:gap-0 overflow-hidden`}
         >
           <TypingText title="Skills" />
           <div
@@ -26,10 +26,10 @@ export default function Skills() {
             </div>
             <TagCloud
               options={(w: Window & typeof globalThis): TagCloudOptions => ({
-                radius:
-                  w.innerWidth > 1000 ? w.innerWidth / 6 : w.innerWidth / 3,
+                radius: w.innerWidth > 1000 ? w.innerWidth / 6 : w.innerWidth / 3,
                 maxSpeed: "fast",
-                itemClass: "text-primary tracking-wider",
+                itemClass: "text-primary tracking-wider hover:font-black",
+                keep:false
               })}
               onClickOptions={{ passive: true }}
             >
