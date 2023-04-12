@@ -14,3 +14,8 @@ export interface Ichevron {
     type:"right"|"left",
     hiddenSlide:String|"right"|"left"
   }
+
+export interface IloadingModalState{
+  status:number | null,
+  isLoading:boolean
+}
