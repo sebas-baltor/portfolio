@@ -18,6 +18,7 @@ module.exports = {
         // "primary-contrast":"#047683",
         "secondary":"#BDFF00",
         "secondary-contrast":"#C5FF1E",
+        "background":"#00000020"
         // "light":"#F8F8F8"
       }
     },
