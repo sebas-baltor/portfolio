@@ -3,6 +3,10 @@ import { TypingText } from "./TypingText";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
 import { Isuscriber } from "@/utils/interfaces";
+import LoadingModal from "../LoadingModal";
+import { useState} from "react";
+import { IloadingModalState } from "@/utils/interfaces";
+
 
 export default function Contact() {
   const initialValues: Isuscriber = {
@@ -11,8 +15,19 @@ export default function Contact() {
     budget: 0,
     message: "",
   };
+  const [loadingState, setLoadingState] = useState<IloadingModalState>({
+    isLoading: false,
+    status: null,
+  });
   return (
-    <section className={`bg-light h-[100vh] ${styles.flexCenter}`} id="contact">
+    <section
+      className={`bg-light h-[100vh] ${styles.flexCenter}`}
+      id="contact"
+    >
+      <LoadingModal
+        isLoading={loadingState.isLoading}
+        status={loadingState.status}
+      />
       <div className={`${styles.paddings}`}>
         <div
           className={`${styles.innerWidth} ${styles.flexColCenter} gap-12 mx-auto`}
@@ -35,8 +50,11 @@ export default function Contact() {
               ),
               message: Yup.string(),
             })}
-            onSubmit={(values, { resetForm }) => {
-              fetch("http://localhost:3000/api/suscribe", {
+            onSubmit={async (values, { resetForm }) => {
+              setLoadingState({ isLoading: true, status: null });
+
+
+              await fetch("http://localhost:3000/api/suscribe", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -45,11 +63,16 @@ export default function Contact() {
               })
                 .then((res) => res.json())
                 .then((data) => {
-                  console.log(data);
+                  setLoadingState({ isLoading: false, status: data.status });
                   resetForm();
                 })
-                .catch((err) => console.log(err));
-              // console.log(values);
+                .catch((err) => {
+                  setLoadingState({ isLoading: true, status: 500 });
+                });
+              setTimeout(() => {
+                setLoadingState({ isLoading: false, status: null });
+                window.onscroll = null;
+              }, 3000);
             }}
           >
             <Form
