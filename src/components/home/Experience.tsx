@@ -95,98 +95,9 @@ export default function Experience() {
                     className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
                   >
                     <img
-                      src={"/exp-1.jpg"}
+                      src={"/assets/web-plant.jpg"}
                       alt={"plant web"}
-                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
-                        isActive ? "blur-[2px]" : "blur-[1px]"
-                      }`}
-                    />
-                    <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
-                    >
-                      View
-                    </div>
-                  </a>
-                )}
-              </SwiperSlide>
-
-              <SwiperSlide>
-                {({ isActive }) => (
-                  <a
-                    href={"https://sebas-baltor.github.io/plant-web/"}
-                    target="_blank"
-                    className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
-                  >
-                    <img
-                      src={"/exp-1.jpg"}
-                      alt={"plant web"}
-                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
-                        isActive ? "blur-[2px]" : "blur-[1px]"
-                      }`}
-                    />
-                    <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
-                    >
-                      View
-                    </div>
-                  </a>
-                )}
-              </SwiperSlide>
-              <SwiperSlide>
-                {({ isActive }) => (
-                  <a
-                    href={"https://sebas-baltor.github.io/plant-web/"}
-                    target="_blank"
-                    className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
-                  >
-                    <img
-                      src={"/exp-1.jpg"}
-                      alt={"plant web"}
-                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
-                        isActive ? "blur-[2px]" : "blur-[1px]"
-                      }`}
-                    />
-                    <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
-                    >
-                      View
-                    </div>
-                  </a>
-                )}
-              </SwiperSlide>
-              <SwiperSlide>
-                {({ isActive }) => (
-                  <a
-                    href={"https://sebas-baltor.github.io/plant-web/"}
-                    target="_blank"
-                    className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
-                  >
-                    <img
-                      src={"/exp-1.jpg"}
-                      alt={"plant web"}
-                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
-                        isActive ? "blur-[2px]" : "blur-[1px]"
-                      }`}
-                    />
-                    <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
-                    >
-                      View
-                    </div>
-                  </a>
-                )}
-              </SwiperSlide>
-              <SwiperSlide>
-                {({ isActive }) => (
-                  <a
-                    href={"https://sebas-baltor.github.io/plant-web/"}
-                    target="_blank"
-                    className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
-                  >
-                    <img
-                      src={"/exp-1.jpg"}
-                      alt={"plant web"}
-                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
+                      className={`w-full object-cover grayscale group-hover:grayscale-0 group-hover:blur-[1px] ${
                         isActive ? "blur-[2px]" : "blur-[1px]"
                       }`}
                     />
@@ -207,31 +118,9 @@ export default function Experience() {
                     className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
                   >
                     <img
-                      src={"/exp-1.jpg"}
+                      src={"/assets/axa-education.jpg"}
                       alt={"plant web"}
-                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
-                        isActive ? "blur-[2px]" : "blur-[1px]"
-                      }`}
-                    />
-                    <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
-                    >
-                      View
-                    </div>
-                  </a>
-                )}
-              </SwiperSlide>
-              <SwiperSlide>
-                {({ isActive }) => (
-                  <a
-                    href={"https://sebas-baltor.github.io/Static-Web-D-DW/"}
-                    target="_blank"
-                    className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
-                  >
-                    <img
-                      src={"/exp-1.jpg"}
-                      alt={"design web"}
-                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
+                      className={`w-full object-cover grayscale group-hover:grayscale-0 group-hover:blur-[1px] ${
                         isActive ? "blur-[2px]" : "blur-[1px]"
                       }`}
                     />
@@ -251,9 +140,9 @@ export default function Experience() {
                     className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
                   >
                     <img
-                      src={"/exp-1.jpg"}
-                      alt={"rick and morty app"}
-                      className={`w-full object-cover grayscale group-hover:blur-[1px] ${
+                      src={"/assets/rick-and-morty-blog.jpg"}
+                      alt={"plant web"}
+                      className={`w-full object-cover grayscale group-hover:grayscale-0 group-hover:blur-[1px] ${
                         isActive ? "blur-[2px]" : "blur-[1px]"
                       }`}
                     />
@@ -265,6 +154,29 @@ export default function Experience() {
                   </a>
                 )}
               </SwiperSlide>
+              <SwiperSlide>
+                {({ isActive }) => (
+                  <a
+                    href={"#"}
+                    target="_blank"
+                    className={`h-full w-full overflow-hidden rounded-lg hover:shadow-lg shadow-sm bg-white block relative group ${styles.flexCenter}`}
+                  >
+                    <img
+                      src={"assets/nft-web-gallery.jpg"}
+                      alt={"plant web"}
+                      className={`w-full object-cover grayscale group-hover:grayscale-0 group-hover:blur-[1px] ${
+                        isActive ? "blur-[2px]" : "blur-[1px]"
+                      }`}
+                    />
+                    <div
+                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
+                    >
+                      View
+                    </div>
+                  </a>
+                )}
+              </SwiperSlide>
+              
             </Swiper>
           </div>
         </div>
