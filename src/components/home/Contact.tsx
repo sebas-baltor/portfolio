@@ -4,9 +4,8 @@ import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
 import { Isuscriber } from "@/utils/interfaces";
 import LoadingModal from "../LoadingModal";
-import { useState} from "react";
+import { useState } from "react";
 import { IloadingModalState } from "@/utils/interfaces";
-
 
 export default function Contact() {
   const initialValues: Isuscriber = {
@@ -20,10 +19,7 @@ export default function Contact() {
     status: null,
   });
   return (
-    <section
-      className={`bg-light h-[100vh] ${styles.flexCenter}`}
-      id="contact"
-    >
+    <section className={`bg-light h-[100vh] ${styles.flexCenter}`} id="contact">
       <LoadingModal
         isLoading={loadingState.isLoading}
         status={loadingState.status}
@@ -52,8 +48,6 @@ export default function Contact() {
             })}
             onSubmit={async (values, { resetForm }) => {
               setLoadingState({ isLoading: true, status: null });
-
-
               await fetch("http://localhost:3000/api/suscribe", {
                 method: "POST",
                 headers: {
@@ -63,15 +57,16 @@ export default function Contact() {
               })
                 .then((res) => res.json())
                 .then((data) => {
-                  setLoadingState({ isLoading: false, status: data.status });
-                  resetForm();
+                  setLoadingState({ isLoading: true, status: data.status });
+                  if (data.status < 300) {
+                    resetForm();
+                  }
                 })
                 .catch((err) => {
                   setLoadingState({ isLoading: true, status: 500 });
                 });
               setTimeout(() => {
                 setLoadingState({ isLoading: false, status: null });
-                window.onscroll = null;
               }, 3000);
             }}
           >
