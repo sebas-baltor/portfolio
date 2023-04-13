@@ -27,13 +27,11 @@ export async function POST(request: NextRequest) {
       status: 200,
     });
   } catch (err) {
-    console.dir(err);
     return NextResponse.json({ message: "something went wrong", status: 500 });
   }
 }
 export async function GET(request: NextRequest) {
-  fetch("https://pokeapi.co/api/v2/pokemon/ditto")
-    .then((res) => res.json())
-    .then((data) => NextResponse.json(data))
-    .catch((err) => NextResponse.json(err));
+  let res = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+  let json = await res.json();
+  return NextResponse.json(json);
 }
