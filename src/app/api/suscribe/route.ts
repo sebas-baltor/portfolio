@@ -1,8 +1,7 @@
 import Suscriber from "@/models/Suscriber";
 import dbConnect from "@/utils/dbConnect";
-import { NextApiResponse } from "next";
 import { NextResponse, NextRequest } from "next/server";
-export async function POST(request: NextRequest, res: NextApiResponse) {
+export async function POST(request: NextRequest) {
     try {
         await dbConnect();
         const { name, email, budget, message } = await request.json();
@@ -23,4 +22,7 @@ export async function POST(request: NextRequest, res: NextApiResponse) {
         console.dir(err);
         return NextResponse.json({ message: "something went wrong", status: 500 })
     }
+}
+export async function GET(request:NextRequest){
+    return NextResponse.json("hola mundo")
 }
