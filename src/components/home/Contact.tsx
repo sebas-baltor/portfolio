@@ -48,7 +48,7 @@ export default function Contact() {
             })}
             onSubmit={async (values, { resetForm }) => {
               setLoadingState({ isLoading: true, status: null });
-              await fetch("https://sebastian-baltazar.vercel.app/api/suscribe", {
+              await fetch("https://localhost:3000/api/suscribe", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -129,9 +129,9 @@ export default function Contact() {
               </label>
               <button
                 type="submit"
-                className={`text-primary text-lg md:text-2xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast `}
+                className={`text-primary text-lg md:text-2xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast`}
               >
-                enviar
+                send
               </button>
             </Form>
           </Formik>

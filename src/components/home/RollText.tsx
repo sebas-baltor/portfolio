@@ -39,7 +39,9 @@ export default function RollText({ text, baseVelocity = 100 }: RollProps) {
     baseX.set(baseX.get() + moveBy);
   });
   return (
-    <div className="overflow-hidden m-0 whitespace-nowrap flex flex-nowrap line-[0.8] -rotate-6">
+    <motion.div className="overflow-hidden m-0 whitespace-nowrap flex flex-nowrap line-[0.8] -rotate-6"
+      style={{y:scrollY,rotate:-5}}
+    >
       <motion.div
         className={`${inter.className} text-8xl flex whitespace-nowrap flex-nowrap text-primary-contrast uppercase font-semibold lg:text-9xl`}
         style={{ x }}
@@ -54,6 +56,6 @@ export default function RollText({ text, baseVelocity = 100 }: RollProps) {
         <span className="block mr-10">{text} </span>
         <span className="block mr-10">{text} </span>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
