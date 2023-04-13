@@ -1,37 +1,36 @@
-import Suscriber from "@/models/Suscriber";
-import dbConnect from "@/utils/dbConnect";
 import { NextResponse, NextRequest } from "next/server";
-import next from "next/types";
+import { transporter } from "@/utils/nodemailer";
+import { IsimpleRes } from "@/utils/interfaces";
 export async function POST(request: NextRequest) {
-  try {
-    await dbConnect();
-    const { name, email, budget, message } = await request.json();
-    let suscriberStored = await Suscriber.find({ email });
-    if (suscriberStored !== null) {
-      return NextResponse.json({
-        message:
-          "Hemos recibido tu mensaje y en unos dias nos pondremos en contacto con tigo, gracias",
-        status: 201,
-      });
-    }
-    let suscriber = new Suscriber({
-      name,
-      email,
-      budget,
-      message,
+    // the request.body()
+  const { name, email, budget, message } = await request.json();
+  const mailOptions = {
+    from: "sebastian-baltazar.vercel.app",
+    to: "baltazarosebas@gmail.com",
+    subject: name,
+    text: message,
+    html: `<div>
+            <div><strong>Nombre: </strong> ${name}</div>
+            <div><strong>Message: </strong> ${message}</div>
+            <div><strong>Budget: </strong> ${budget}</div>
+            <div><strong>From: </strong> ${email}</div>
+        </div>`,
+  };
+  // interface to return a simple response
+  let infoRes = {
+    message: "something went wrong",
+    status: 500,
+  } satisfies IsimpleRes;
+  // sending email and handle error
+  await transporter
+    .sendMail(mailOptions)
+    .then((info) => {
+      infoRes.message = "success send email";
+      infoRes.status = 200;
+    })
+    .catch((err) => {
+      console.log(err);
     });
-    await suscriber.save();
-    return NextResponse.json({
-      saved: suscriber,
-      message: "success update",
-      status: 200,
-    });
-  } catch (err) {
-    return NextResponse.json({ message: "something went wrong", status: 500 });
-  }
-}
-export async function GET(request: NextRequest) {
-  let res = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
-  let json = await res.json();
-  return NextResponse.json(json);
+    // send the response
+  return NextResponse.json(infoRes);
 }

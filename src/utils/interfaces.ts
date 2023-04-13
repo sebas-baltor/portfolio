@@ -19,3 +19,7 @@ export interface IloadingModalState{
   status:number | null,
   isLoading:boolean
 }
+export interface IsimpleRes {
+  message:string,
+  status:number
+}
