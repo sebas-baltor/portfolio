@@ -14,7 +14,7 @@ export default function Footer() {
           <a href="https://github.com/sebas-baltor" target="_blank" className="hover:text-secondary">
             <BsGithub />
           </a>
-          <a href="https://linkedin.com" target="_blank" className="hover:text-secondary">
+          <a href="https://www.linkedin.com/in/sebastian-baltazar-b76232209" target="_blank" className="hover:text-secondary">
             <BsLinkedin />
           </a>
         </div>

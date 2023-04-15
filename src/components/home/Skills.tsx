@@ -17,7 +17,11 @@ export default function Skills() {
             className={`flex flex-col lg:flex-row justify-center items-center flex-nowrap gap-6 lg:gap-0 w-full`}
           >
             <div className="w-full lg:max-w-[500px] ">
-              <h3 className="text-secondary text-2xl lg:text-4xl font-black mb-4">Short history...</h3>
+              <span className="mb-6 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block">
+                <h3 className="relative text-secondary text-2xl lg:text-4xl font-black ">
+                  Short history...
+                </h3>
+              </span>
               <p className="text-primary text-lg md:text-2xl text-justify tracking-widest leading-loose">
                 I started developing software in the year 2020, since I love to
                 create value out of nothing, and over time I have gained some
@@ -26,10 +30,11 @@ export default function Skills() {
             </div>
             <TagCloud
               options={(w: Window & typeof globalThis): TagCloudOptions => ({
-                radius: w.innerWidth > 1000 ? w.innerWidth / 6 : w.innerWidth / 3,
+                radius:
+                  w.innerWidth > 1000 ? w.innerWidth / 6 : w.innerWidth / 3,
                 maxSpeed: "fast",
-                itemClass: "text-primary tracking-wider hover:font-black",
-                keep:false
+                itemClass: "text-primary tracking-wider hover:font-black hover:line-through decoration-secondary decoration-2",
+                keep: false,
               })}
               onClickOptions={{ passive: true }}
             >

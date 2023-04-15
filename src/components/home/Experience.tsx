@@ -38,13 +38,13 @@ const Chevron = ({ type,hiddenSlide }:Ichevron) => {
         type == "left"
           ? hiddenSlide == "left"
             ? "hidden"
-            : `${styles.flexCenter} bg-gradient-to-l from-transparent to-secondary top-0 left-0`
+            : `${styles.flexCenter} bg-gradient-to-l from-transparent to-secondary/50 top-0 left-0`
         : hiddenSlide == "right"
         ? "hidden"
-        : `${styles.flexCenter} bg-gradient-to-l from-secondary to-transparent top-0 right-0`
-      } opacity-40 hidden lg:flex cursor-pointer w-24 rounded-lg h-full absolute z-10 text-white text-6xl hover:w-28 hover:opacity-60`}
+        : `${styles.flexCenter} bg-gradient-to-l from-secondary/50 to-transparent top-0 right-0`
+      } hidden lg:flex cursor-pointer w-24 rounded-lg h-full absolute z-30 text-6xl hover:w-28 text-primary`}
     >
-      {type == "left" ? <BiChevronLeft /> : <BiChevronRight />}
+      {type == "left" ? <BiChevronLeft/> : <BiChevronRight />}
     </div>
   );
 };
@@ -102,7 +102,7 @@ export default function Experience() {
                       }`}
                     />
                     <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
+                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-primary ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
                     >
                       View
                     </div>
@@ -125,7 +125,7 @@ export default function Experience() {
                       }`}
                     />
                     <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
+                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-primary ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
                     >
                       View
                     </div>
@@ -147,7 +147,7 @@ export default function Experience() {
                       }`}
                     />
                     <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
+                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-primary ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
                     >
                       View
                     </div>
@@ -169,7 +169,7 @@ export default function Experience() {
                       }`}
                     />
                     <div
-                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-white ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
+                      className={`h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] rounded-full bg-secondary/50 absolute ${styles.flexCenter} text-primary ${sacramento.className} text-4xl opacity-0 group-hover:opacity-100`}
                     >
                       View
                     </div>

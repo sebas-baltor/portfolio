@@ -45,7 +45,7 @@ export default function Main() {
             >
               <BsGithub className="" />
             </a>
-            <a href="" className="hover:text-secondary">
+            <a href="https://www.linkedin.com/in/sebastian-baltazar-b76232209" className="hover:text-secondary">
               <BsLinkedin />
             </a>
             <div className="h-44 w-[3px] rounded bg-gradient-to-t from-secondary to-primary-contrast group-hover:to-secondary "></div>
