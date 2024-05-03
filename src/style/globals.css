@@ -3,16 +3,21 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-    height: 5px;
-    width: 5px;
-    background: #F5F8FF;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #BDFF00;
-    -webkit-border-radius: 1ex;
-  }
-  
-  ::-webkit-scrollbar-corner {
-    background: #BDFF00;
-  }
+  height: 5px;
+  width: 5px;
+  background: #F5F8FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5FF1E;
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: #C5FF1E;
+}
+
+.bg-glows {
+  background: rgb(197, 255, 30);
+  background: radial-gradient(circle, rgba(197, 255, 30, .2) 0%, rgba(9, 18, 47, .2) 50%);
+}

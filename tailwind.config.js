@@ -9,17 +9,17 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        "primary":"#1B2C62",
+        "primary":"#09122F",
+       
         "primary-contrast":"#4B5C92",
-        // "secondary":"#F5626C",
-        // "secondary-contrast":"#F2535E",
+        "text-dark":"#868DA4",
+        "text-light":"#C1C6D6",
+        "gray-blue-top":"#1C233C",
+        "gray-blue-bot":"#0C1431",
         "light":"#F5F8FF",
-        // "primary":"#126678",
-        // "primary-contrast":"#047683",
-        "secondary":"#BDFF00",
-        "secondary-contrast":"#C5FF1E",
-        "background":"#00000020"
-        // "light":"#F8F8F8"
+        "secondary":"#C5FF1E",
+        "secondary-contrast":"#9FD021",
+        "background":"#09122F"
       }
     },
   },

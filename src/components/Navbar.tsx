@@ -1,34 +1,27 @@
 import styles from "../style/index.js";
-import { Sacramento } from "next/font/google";
+import { links } from "@/utils/links.js";
+import { Inter } from "next/font/google";
 
-const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
-
+// const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
+const inter = Inter({ weight: "300", subsets: ["latin"] });
 export default function Navbar() {
   return (
     <nav
-      className={`${sacramento.className} w-full bg-primary sticky -top-[1px] px-4 py-2 text-secondary text-xl md:text-2xl lg:text-3xl z-20 border-t-2 border-secondary`}
+      className={`${inter.className} bg-transparent w-full fixed top-3 px-4 py-2 text-text-light text-xl md:text-2xl lg:text-3xl z-20 flex justify-center items-center`}
     >
       <div
-        className={`${styles.innerWidth} w-full mx-auto flex justify-between`}
+        className={`flex gap-7 bg-gradient-to-b from-gray-blue-top to-text-gray-blue-bot shadow-lg px-5 py-1 rounded-lg text-base backdrop-blur-sm`}
       >
-        <a
-          href="#skills"
-          className="hover:underline decoration-1"
-        >
-          Skills
-        </a>
-        <a
-          href="#exp"
-          className="hover:underline decoration-1"
-        >
-          Experience
-        </a>
-        <a
-          href="#contact"
-          className="hover:underline decoration-1"
-        >
-          Contact
-        </a>
+        {links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="hover:text-secondary transition"
+          >
+            {link.text}
+          </a>
+        
+        ))}
       </div>
     </nav>
   );

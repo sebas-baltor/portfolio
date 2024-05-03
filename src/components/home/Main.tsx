@@ -4,83 +4,39 @@ import { motion, useScroll } from "framer-motion";
 import { Inter } from "next/font/google";
 import { MdDoubleArrow } from "react-icons/md";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
+// import MainTitle from "../const/MainTitle";
+import MainTitle from "../const/MainTitle";
+import Paragraph from "../const/Paragraph";
+import AnchorBtn from "../const/AnchorBtn";
 const inter = Inter({ weight: "900", subsets: ["latin"] });
+
 
 export default function Main() {
   return (
     <main className={`overflow-hidden h-screen w-full bg-primary relative`}>
-      <RollText text="FRONTEND BACKEND WEB DEV" baseVelocity={-2} />
-      <RollText text="FULL STACK DEVELOPER FRONTEND" baseVelocity={2} />
       <div
-        className={`flex flex-col justify-center items-center ${styles.paddings} absolute top-0 z-10 gap-12 text-white h-screen max-h-screen w-full`}
+        className={`flex justify-center items-center ${styles.paddings} h-screen`}
       >
         <div
-          className={`${styles.innerWidth} flex flex-col gap-4 lg:gap-12 items-end relative text-lg md:text-4xl`}
+          className={`${styles.innerWidth} flex flex-col gap-20 z-10`}
         >
           <div
-            className={`flex flex-col flex-nowrap justify-start text-white text-lg gap-3 md:text-2xl lg:text-4xl lg:gap-4`}
+            className={`w-full text-white text-lg gap-3 md:text-2xl lg:text-4xl lg:gap-4`}
           >
-            <span>Hi, my name is</span>
-            <span
-              className={`${inter.className} font-black text-6xl lg:text-8xl text-secondary tracking-widest`}
-            >
-              Sebastián
-            </span>
-            <span className="text-justify">
-              I’m a freelance full stack developer and I want to work with you,
-              creating amazing webs and solving problems.
-            </span>
+            <span className="bg-sky-500/60 rounded-full text-white border-2 border-sky-600 px-3 py-1 text-xs font-bold">Open To Work</span>
+            <MainTitle grayText="Hi, my name is" highlightText="Sebastián" />
+            <div className="w-full lg:w-2/3">
+              <Paragraph text="I'm a full-stack developer with 2+ years of experience, a fan of exploring new technologies and JavaScript." />
+            </div>
           </div>
-          <a
-            href="#skills"
-            className={`text-primary text-lg md:text-2xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast lg:text-2xl max-w-max`}
-          >
-            about me
-          </a>
-          <div className="text-primary-contrast absolute -bottom-[100%] -right-0 md:-right-4 z-20 flex flex-col gap-3 items-center text-xl md:text-2xl lg:text-3xl group">
-            <a
-              href="https://github.com/sebas-baltor"
-              target={"_blank"}
-              className="hover:text-secondary"
-            >
-              <BsGithub className="" />
-            </a>
-            <a href="https://www.linkedin.com/in/sebastian-baltazar-b76232209" className="hover:text-secondary">
-              <BsLinkedin />
-            </a>
-            <div className="h-44 w-[3px] rounded bg-gradient-to-t from-secondary to-primary-contrast group-hover:to-secondary "></div>
+          <div className="flex gap-3 items-start">
+            <AnchorBtn href="https://github.com/sebas-baltor" text="Github" children={<BsGithub />} />
+            <AnchorBtn href="https://www.linkedin.com/in/sebastian-baltazar-b76232209" text="LinkedIn" children={<BsLinkedin />} />
           </div>
-        </div>
-        <div
-          className={`${styles.flexCenter} relative text-6xl text-secondary rotate-90`}
-        >
-          <motion.span
-            className="absolute"
-            initial={{
-              x: "0%",
-              opacity: 0,
-            }}
-            animate={{
-              x: ["1%", "99%"],
-              opacity: [0, 1],
-            }}
-            transition={{
-              x: {
-                duration: 2,
-                repeat: Infinity,
-                ease: "circIn",
-              },
-              opacity: {
-                duration: 2,
-                repeat: Infinity,
-                ease: "anticipate",
-              },
-            }}
-          >
-            <MdDoubleArrow />
-          </motion.span>
         </div>
       </div>
+      <div className="z-1 bg-glows absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"></div>
+      <div className="z-1 bg-glows absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-[1200px] h-[1200px] rounded-full"></div>
     </main>
   );
 }

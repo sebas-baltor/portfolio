@@ -6,13 +6,20 @@ import { useRef } from "react";
 export default function Skills() {
   const sphereContainer = useRef<HTMLDivElement>(null);
   return (
-    <section className="bg-light" id="skills">
-      <div className={`${styles.paddings} h-screen`}>
+    <section id="skills">
+      <div className={`${styles.paddings} h-screen bg-primary relative overflow-hidden`}>
         <div
           className={`${styles.innerWidth} ${styles.flexColCenter} mx-auto h-full gap-12 lg:gap-0 overflow-hidden`}
         >
           <TypingText title="Skills" />
-          <div
+          <div className="grid grid-cols-3 grid-rows-2 gap-4">
+            <div className="bg-red-300">hola</div>
+            <div className="bg-red-300">hola</div>
+            <div className="bg-red-300">hola</div>
+            <div className="bg-red-300">hola</div>
+          </div>
+
+          {/* <div
             ref={sphereContainer}
             className={`flex flex-col lg:flex-row justify-center items-center flex-nowrap gap-6 lg:gap-0 w-full`}
           >
@@ -58,8 +65,9 @@ export default function Skills() {
                 "SQL Server",
               ]}
             </TagCloud>
-          </div>
+          </div> */}
         </div>
+        <div className="z-1 bg-glows absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] rounded-full"></div>
       </div>
     </section>
   );
