@@ -1,14 +1,7 @@
 import styles from "@/style";
-import RollText from "./RollText";
-import { motion, useScroll } from "framer-motion";
-import { Inter } from "next/font/google";
-import { MdDoubleArrow } from "react-icons/md";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-// import MainTitle from "../const/MainTitle";
 import MainTitle from "../const/MainTitle";
 import Paragraph from "../const/Paragraph";
-import AnchorBtn from "../const/AnchorBtn";
-const inter = Inter({ weight: "900", subsets: ["latin"] });
 
 
 export default function Main() {
@@ -30,8 +23,12 @@ export default function Main() {
             </div>
           </div>
           <div className="flex gap-3 items-start">
-            <AnchorBtn href="https://github.com/sebas-baltor" text="Github" children={<BsGithub />} />
-            <AnchorBtn href="https://www.linkedin.com/in/sebastian-baltazar-b76232209" text="LinkedIn" children={<BsLinkedin />} />
+            <a target={"_blank"} href={"https://github.com/sebas-baltor"} className="flex items-center flex-nowrap gap-2 px-3 py-1 rounded-md bg-secondary/80 hover:bg-secondary transition border-2 border-secondary text-primary font-bold">
+              <BsGithub /> Github
+            </a>
+            <a target={"_blank"} href={"https://www.linkedin.com/in/sebastian-baltazar-b76232209"} className="flex items-center flex-nowrap gap-2 px-3 py-1 rounded-md bg-secondary/80 hover:bg-secondary transition border-2 border-secondary text-primary font-bold">
+              <BsLinkedin /> LinkedIn
+            </a>
           </div>
         </div>
       </div>
