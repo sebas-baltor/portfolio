@@ -1,5 +1,5 @@
 import styles from "@/style";
-import { TypingText } from "./TypingText";
+import { TypingText } from "../../const/TypingText";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import { Sacramento } from "next/font/google";
@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useState } from "react";
 import { Ichevron } from "@/utils/interfaces";
+import TimelineItem from "./TimelineItem";
 const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
 const responsiveSlider = {
   // when window width is >= 320px
@@ -30,35 +31,43 @@ const responsiveSlider = {
 };
 
 
-const Chevron = ({ type,hiddenSlide }:Ichevron) => {
+const Chevron = ({ type, hiddenSlide }: Ichevron) => {
   return (
     <div
       id={`chevron-${type}`}
-      className={`${
-        type == "left"
-          ? hiddenSlide == "left"
-            ? "hidden"
-            : `${styles.flexCenter} bg-gradient-to-l from-transparent to-secondary/50 top-0 left-0`
+      className={`${type == "left"
+        ? hiddenSlide == "left"
+          ? "hidden"
+          : `${styles.flexCenter} bg-gradient-to-l from-transparent to-secondary/50 top-0 left-0`
         : hiddenSlide == "right"
-        ? "hidden"
-        : `${styles.flexCenter} bg-gradient-to-l from-secondary/50 to-transparent top-0 right-0`
-      } hidden lg:flex cursor-pointer w-24 rounded-lg h-full absolute z-30 text-6xl hover:w-28 text-primary`}
+          ? "hidden"
+          : `${styles.flexCenter} bg-gradient-to-l from-secondary/50 to-transparent top-0 right-0`
+        } hidden lg:flex cursor-pointer w-24 rounded-lg h-full absolute z-30 text-6xl hover:w-28 text-primary`}
     >
-      {type == "left" ? <BiChevronLeft/> : <BiChevronRight />}
+      {type == "left" ? <BiChevronLeft /> : <BiChevronRight />}
     </div>
   );
 };
 
 export default function Experience() {
-  const [hiddenSlide,setHiddenSlide]= useState("left");
+  const [hiddenSlide, setHiddenSlide] = useState("left");
   return (
-    <section className="bg-light" id="exp">
-      <div className={`${styles.paddings} h-screen`}>
+    <section id="exp">
+      <div className={`${styles.paddings}`}>
         <div
-          className={`${styles.innerWidth} mx-auto ${styles.flexColCenter} gap-12 h-full`}
+          className={`${styles.innerWidth} mx-auto`}
         >
           <TypingText title="Experience" />
-          <div className="h-[50vh] w-full">
+
+          <ol className="border-l-2 border-secondary ml-5 mt-8 relative">
+            <TimelineItem date="2022" description="Years later, my curiosity has flourished, and I've challenged myself to learn all I can. This year, a company contacted me to design and implement the frontend for certain parts of their application." title="EXA Solutions" imgSrc="https://www.epl.ca/wp-content/uploads/sites/18/2020/12/CodingSnowflakes_Dec2020_BlogCard_890x445.png"/>
+            <TimelineItem date="2023" description="I began as a backend developer with .NET, creating a series of financial calculators. Later, I transitioned to experimenting with different technologies, including Windows Forms and Xamarin, all using C#." title="ASFIES" imgSrc="https://www.epl.ca/wp-content/uploads/sites/18/2020/12/CodingSnowflakes_Dec2020_BlogCard_890x445.png"/>
+            <TimelineItem date="2024" description="I joined the team as a full-stack developer, leveraging my knowledge from the .NET ecosystem. Quickly adapting, I transitioned to PHP, mastering Laravel and Livewire. Additionally, I deployed an application with Azure." title="FAW ELAM" imgSrc="https://www.epl.ca/wp-content/uploads/sites/18/2020/12/CodingSnowflakes_Dec2020_BlogCard_890x445.png"/>
+            <TimelineItem date="now" description="I started a proyect to become the next ERP for all the intern process for the company with React and Livewire" title="Fflowing"/>
+          </ol>
+
+
+          {/* <div className="h-[50vh] w-full">
             <Swiper
               className="h-full"
               spaceBetween={50}
@@ -178,7 +187,7 @@ export default function Experience() {
               </SwiperSlide>
               
             </Swiper>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

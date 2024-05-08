@@ -14,6 +14,8 @@ module.exports = {
         "primary-contrast":"#4B5C92",
         "text-dark":"#868DA4",
         "text-light":"#C1C6D6",
+        "title-text-dark":"#454853",
+        "title-text-light":"#C1C6D6",
         "gray-blue-top":"#1C233C",
         "gray-blue-bot":"#0C1431",
         "light":"#F5F8FF",

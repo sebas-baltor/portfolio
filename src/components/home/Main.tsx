@@ -13,7 +13,7 @@ const inter = Inter({ weight: "900", subsets: ["latin"] });
 
 export default function Main() {
   return (
-    <main className={`overflow-hidden h-screen w-full bg-primary relative`}>
+    <main className={`overflow-hidden h-screen w-full relative`}>
       <div
         className={`flex justify-center items-center ${styles.paddings} h-screen`}
       >
@@ -25,8 +25,8 @@ export default function Main() {
           >
             <span className="bg-sky-500/60 rounded-full text-white border-2 border-sky-600 px-3 py-1 text-xs font-bold">Open To Work</span>
             <MainTitle grayText="Hi, my name is" highlightText="Sebastián" />
-            <div className="w-full lg:w-2/3">
-              <Paragraph text="I'm a full-stack developer with 2+ years of experience, a fan of exploring new technologies and JavaScript." />
+            <div className="w-full lg:w-1/2">
+              <Paragraph className="lg:text-2xl" text="I'm a full-stack developer with 2+ years of experience, a fan of exploring new technologies and JavaScript." />
             </div>
           </div>
           <div className="flex gap-3 items-start">

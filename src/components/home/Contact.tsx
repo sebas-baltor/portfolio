@@ -1,5 +1,5 @@
 import styles from "@/style";
-import { TypingText } from "./TypingText";
+import { TypingText } from "../const/TypingText";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
 import { Isuscriber } from "@/utils/interfaces";
@@ -19,28 +19,27 @@ export default function Contact() {
     status: null,
   });
   return (
-    <section className={`bg-light h-[100vh] ${styles.flexCenter}`} id="contact">
+    <section className={`h-screen ${styles.flexCenter}`} id="contact">
       <LoadingModal
         isLoading={loadingState.isLoading}
         status={loadingState.status}
       />
       <div className={`${styles.paddings}`}>
         <div
-          className={`${styles.innerWidth} ${styles.flexColCenter} gap-12 mx-auto`}
+          className={`${styles.innerWidth} mx-auto`}
         >
-          <TypingText title="Any proyect?" />
           <Formik
             initialValues={initialValues}
             validationSchema={Yup.object({
               name: Yup.string()
                 .max(100, "It would be less than 100 characters")
-                .required("We have to know, who you are"),
+                .required("Who you are?"),
               email: Yup.string()
                 .matches(
                   /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                   "Your email is important, make sure write it correctly"
                 )
-                .required("We need a way to contact you"),
+                .required("I need a way to contact you"),
               budget: Yup.number().required(
                 "Is necessary to know the budget you have for"
               ),
@@ -72,14 +71,17 @@ export default function Contact() {
             }}
           >
             <Form
-              className={`${styles.flexColCenter} gap-6 w-full md:w-[50vw]`}
+              className={`${styles.flexColCenter} gap-12 w-full md:w-[50vw] p-8 bg-gradient-to-br from-gray-blue-bot to-gray-blue-top rounded-2xl shadow-2xl`}
             >
+          <TypingText title="Any proyect?" />
+
+              <div className={`${styles.flexColCenter} gap-6 w-full`}>
               <label className="w-full max-w-xl">
                 <Field
                   type="text"
                   name="name"
                   placeholder="Name *"
-                  className="px-2 py-3 w-full outline-0 focus:shadow-lg focus:placeholder:text-secondary placeholder:text-primary border-b-2 border-primary focus:border-secondary text-primary focus:text-secondary focus:bg-primary"
+                  className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
                 />
                 <span className="text-red-600 text-xs">
                   <ErrorMessage name="name" />
@@ -91,7 +93,7 @@ export default function Contact() {
                   type="email"
                   name="email"
                   placeholder="Email *"
-                  className="px-2 py-3 w-full outline-0 focus:shadow-lg focus:placeholder:text-secondary placeholder:text-primary border-b-2 border-primary focus:border-secondary text-primary focus:text-secondary focus:bg-primary"
+                  className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
                 />
                 <span className="text-red-600 text-xs">
                   <ErrorMessage name="email" />
@@ -102,7 +104,7 @@ export default function Contact() {
                 <Field
                   as="select"
                   name="budget"
-                  className="px-2 py-3 w-full outline-0 focus:shadow-lg focus:placeholder:text-secondary placeholder:text-primary border-b-2 border-primary focus:border-secondary text-primary focus:text-secondary focus:bg-primary"
+                  className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
                   multiple={false}
                 >
                   <option disabled defaultChecked={true}>
@@ -123,13 +125,14 @@ export default function Contact() {
                   as="textarea"
                   name="message"
                   placeholder="Tell me about you proyect"
-                  className="px-2 py-3 w-full outline-0 focus:shadow-lg focus:placeholder:text-secondary placeholder:text-primary border-b-2 border-primary focus:border-secondary text-primary focus:text-secondary focus:bg-primary"
+                  className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
                   rows={4}
                 />
               </label>
+              </div>
               <button
                 type="submit"
-                className={`text-primary text-lg md:text-2xl bg-secondary py-2 px-6 rounded-xl hover:shadow-xl hover:bg-secondary-contrast`}
+                className={`px-3 py-1 rounded-md bg-secondary/80 hover:bg-secondary transition border-2 border-secondary text-primary font-bold`}
               >
                 send
               </button>

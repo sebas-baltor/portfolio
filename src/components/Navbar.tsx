@@ -1,4 +1,3 @@
-import styles from "../style/index.js";
 import { links } from "@/utils/links.js";
 import { Inter } from "next/font/google";
 
@@ -10,8 +9,8 @@ export default function Navbar() {
       className={`${inter.className} bg-transparent w-full fixed top-3 px-4 py-2 text-text-light text-xl md:text-2xl lg:text-3xl z-20 flex justify-center items-center`}
     >
       <div
-        className={`flex gap-7 bg-gradient-to-b from-gray-blue-top to-text-gray-blue-bot shadow-lg px-5 py-1 rounded-lg text-base backdrop-blur-sm`}
-      >
+        className={`flex gap-6 bg-gradient-to-t from-gray-blue-top to-gray-blue-bot px-10 py-3 rounded-2xl text-base backdrop-blur-sm shadow-md`}
+      >  
         {links.map((link) => (
           <a
             key={link.href}
@@ -20,7 +19,6 @@ export default function Navbar() {
           >
             {link.text}
           </a>
-        
         ))}
       </div>
     </nav>

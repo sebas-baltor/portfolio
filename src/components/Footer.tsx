@@ -9,7 +9,7 @@ export default function Footer() {
       <div
         className={`${styles.innerWidth} h-full mx-auto flex justify-between items-center text-white text-xl md:text-2xl px-4`}
       >
-        <span className={`${sacramento.className}`}>From MX to the 🗺️</span>
+        <span className={`text-xs`}>From MX to the 🗺️</span>
         <div className="flex gap-2">
           <a href="https://github.com/sebas-baltor" target="_blank" className="hover:text-secondary">
             <BsGithub />
