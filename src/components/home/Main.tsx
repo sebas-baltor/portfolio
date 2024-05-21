@@ -6,7 +6,7 @@ import Paragraph from "../const/Paragraph";
 
 export default function Main() {
   return (
-    <main className={`overflow-hidden h-screen w-full relative`}>
+    <main className={`overflow-hidden h-screen w-full relative bg-squares-patterns`}>
       <div
         className={`flex justify-center items-center ${styles.paddings} h-screen`}
       >
@@ -32,6 +32,7 @@ export default function Main() {
           </div>
         </div>
       </div>
+      <div className="z-1 absolute bg-gradient-to-t from-primary to-transparent w-full bottom-0 left-0 h-[100px]"></div>
       <div className="z-1 bg-glows absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"></div>
       <div className="z-1 bg-glows absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-[1200px] h-[1200px] rounded-full"></div>
     </main>
