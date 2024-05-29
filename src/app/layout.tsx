@@ -1,4 +1,6 @@
 import '../style/globals.css'
+import "../style/prism-lucario.css"
+
 import { Montserrat } from 'next/font/google'
 
 const montserrat = Montserrat({weight:"400",subsets:["latin"]});

@@ -7,12 +7,15 @@ export const links = [
         href: "#exp",
         text: "Experience"
     },
-    {
-        href: "#about",
-        text: "About Me"
-    },
+    // {
+    //     href: "#about",
+    //     text: "About Me"
+    // },
     {
         href: "#contact",
         text: "Contact"
-    }
+    },{
+        href: "/blog",
+        text: "Blog"
+    },
 ]
