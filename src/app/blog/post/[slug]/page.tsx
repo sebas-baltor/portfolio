@@ -13,7 +13,7 @@ export default function PostPage({params}: { params: {slug: string} }) {
     const Content = useMDXComponent(post.body.code)
 
     return (
-        <article className={`overflow-hidden h-screen w-full relative bg-squares-patterns`}>
+        <article className={`overflow-hidden min-h-screen w-full min-w-sm relative bg-squares-patterns`}>
             <div
                 className={`flex ${styles.paddings} min-h-screen`}
             >

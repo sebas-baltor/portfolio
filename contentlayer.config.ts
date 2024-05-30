@@ -3,7 +3,6 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import readingTime from 'reading-time';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
-import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 export const Post = defineDocumentType(() => ({
@@ -31,15 +30,14 @@ export default makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
-      rehypeCodeTitles,
       rehypePrism,
       [
         rehypeAutolinkHeadings,
-        // {
-        //   properties: {
-        //     className: ['anchor']
-        //   }
-        // }
+        {
+          properties: {
+            className: ['anchor']
+          }
+        }
       ]
     ],
   }
