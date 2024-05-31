@@ -1,4 +1,5 @@
 import styles from "@/style"
+import Footer from "@/components/Footer"
 import { Post, allPosts } from "contentlayer/generated"
 import Link from "next/link"
 import Image from "next/image"
@@ -13,6 +14,7 @@ export default function PostPage({params}: { params: {slug: string} }) {
     const Content = useMDXComponent(post.body.code)
 
     return (
+        <>
         <article className={`overflow-hidden min-h-screen w-full min-w-sm relative bg-squares-patterns`}>
             <div
                 className={`flex ${styles.paddings} min-h-screen`}
@@ -21,7 +23,7 @@ export default function PostPage({params}: { params: {slug: string} }) {
                 className={`${styles.innerWidth} mx-auto flex flex-col gap-20 z-10`}
                 >
                     <div>
-                        <div>
+                        <div className="mb-3">
                         <Link href="/blog" className="text-xs text-title-text-light hover:text-secondary transition">👈 Go Back</Link>
                         </div>
                         <h1 className={`font-black text-3xl md:text-4xl lg:text-6xl bg-gradient-to-r from-text-dark to-text-light text-transparent bg-clip-text leading-normal inline-block`}>{post?.title}</h1>
@@ -33,25 +35,14 @@ export default function PostPage({params}: { params: {slug: string} }) {
                             <small className="text-secondary">{post?.readingTime.text}</small>
                         </div>
                     </div>
-                    <div className="post text-title-text-light">
+                    <div className="post text-title-text-light max-w-2xl mx-auto">
                         <Content components={mdxComponent}/>
                     </div>
                     {/* {post?.body ? <div className="text-white [&>*]:mb-3 [&>*:last-child]:mb-0 lg:w-1/2 lg:mx-auto"> </div>: <p>Post not found</p>} */}
                 </div>
             </div>
         </article>
+        <Footer/>
+        </>
     );
 }
-
-// export async function getStaticPaths() {
-//     return {
-//       paths: allPosts.map((a) => ({ params: { slug: a.slug } })),
-//       fallback: false,
-//     };
-//   }
-  
-//   export async function getStaticProps({ params }: { params: { slug: string } }) {
-//     const post = allPosts.find((post) => post.slug === params?.slug);
-  
-//     return { props: { post } };
-//   }

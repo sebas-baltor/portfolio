@@ -19,15 +19,12 @@ export default function Contact() {
     status: null,
   });
   return (
-    <section className={`h-screen ${styles.flexCenter}`} id="contact">
+    <section className={`min-h-screen ${styles.flexCenter}`} id="contact">
       <LoadingModal
         isLoading={loadingState.isLoading}
         status={loadingState.status}
       />
-      <div className={`${styles.paddings}`}>
-        <div
-          className={`${styles.innerWidth} mx-auto`}
-        >
+      <div className={`w-full ${styles.paddings} ${styles.innerWidth} ${styles.flexCenter}`}>
           <Formik
             initialValues={initialValues}
             validationSchema={Yup.object({
@@ -47,7 +44,7 @@ export default function Contact() {
             })}
             onSubmit={async (values, { resetForm }) => {
               setLoadingState({ isLoading: true, status: null });
-              await fetch("https://sebastian-baltazar.vercel.app/api/suscribe", {
+              await fetch("http://localhost:3000/api/suscribe", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -73,62 +70,62 @@ export default function Contact() {
             <Form
               className={`${styles.flexColCenter} gap-12 w-full md:w-[50vw] p-8 bg-gradient-to-br from-gray-blue-bot to-gray-blue-top rounded-2xl shadow-2xl`}
             >
-          <TypingText title="Any proyect?" />
+              <TypingText title="Any proyect?" />
 
               <div className={`${styles.flexColCenter} gap-6 w-full`}>
-              <label className="w-full max-w-xl">
-                <Field
-                  type="text"
-                  name="name"
-                  placeholder="Name *"
-                  className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
-                />
-                <span className="text-red-600 text-xs">
-                  <ErrorMessage name="name" />
-                </span>
-              </label>
+                <label className="w-full max-w-xl">
+                  <Field
+                    type="text"
+                    name="name"
+                    placeholder="Name *"
+                    className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
+                  />
+                  <span className="text-red-600 text-xs">
+                    <ErrorMessage name="name" />
+                  </span>
+                </label>
 
-              <label className="w-full max-w-xl">
-                <Field
-                  type="email"
-                  name="email"
-                  placeholder="Email *"
-                  className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
-                />
-                <span className="text-red-600 text-xs">
-                  <ErrorMessage name="email" />
-                </span>
-              </label>
+                <label className="w-full max-w-xl">
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email *"
+                    className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
+                  />
+                  <span className="text-red-600 text-xs">
+                    <ErrorMessage name="email" />
+                  </span>
+                </label>
 
-              <label className="w-full max-w-xl">
-                <Field
-                  as="select"
-                  name="budget"
-                  className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
-                  multiple={false}
-                >
-                  <option disabled defaultChecked={true}>
-                    Budget *
-                  </option>
-                  <option value="3000">Less than 3k</option>
-                  <option value="6000">Between 4k - 6k</option>
-                  <option value="12000">Between 7k - 12k</option>
-                  <option value="20000">More than 20k</option>
-                </Field>
-                <span className="text-red-600 text-xs">
-                  <ErrorMessage name="budget" />
-                </span>
-              </label>
+                <label className="w-full max-w-xl">
+                  <Field
+                    as="select"
+                    name="budget"
+                    className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
+                    multiple={false}
+                  >
+                    <option disabled defaultChecked={true}>
+                      Budget *
+                    </option>
+                    <option value="3000">Less than 3k</option>
+                    <option value="6000">Between 4k - 6k</option>
+                    <option value="12000">Between 7k - 12k</option>
+                    <option value="20000">More than 20k</option>
+                  </Field>
+                  <span className="text-red-600 text-xs">
+                    <ErrorMessage name="budget" />
+                  </span>
+                </label>
 
-              <label className="w-full max-w-xl">
-                <Field
-                  as="textarea"
-                  name="message"
-                  placeholder="Tell me about you proyect"
-                  className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
-                  rows={4}
-                />
-              </label>
+                <label className="w-full max-w-xl">
+                  <Field
+                    as="textarea"
+                    name="message"
+                    placeholder="Tell me about you proyect"
+                    className="px-4 py-2 w-full rounded-lg outline-0 bg-gray-200/5 placeholder:text-gray-500 text-gray-400 border border-gray-200/5"
+                    rows={4}
+                  />
+                </label>
               </div>
               <button
                 type="submit"
@@ -138,7 +135,6 @@ export default function Contact() {
               </button>
             </Form>
           </Formik>
-        </div>
       </div>
     </section>
   );

@@ -13,15 +13,15 @@ export default function Navbar() {
     <nav
       className={`${inter.className} bg-transparent w-full fixed top-0 md:top-3 md:px-4 md:py-2 text-text-light text-xl md:text-2xl lg:text-3xl z-20 flex md:justify-center md:items-center`}
     >
-      <div className="md:hidden h-screen w-full relative" >
-        <HiOutlineMenuAlt2 className="z-10 absolute top-4 left-4 text-2xl text-dark hover:text-secondary cursor-pointer" onClick={opendNav}/>
-        <div className="absolute top-0 left-0 hidden bg-squares-patterns w-full h-full flex flex-col items-center justify-center gap-10" ref={responsiveNavRef}>
+      <HiOutlineMenuAlt2 className="md:hidden z-10 absolute top-4 left-4 text-2xl text-dark hover:text-secondary cursor-pointer" onClick={opendNav} />
+      <div className="hidden md:hidden h-screen w-full relative" ref={responsiveNavRef}>
+        <div className="absolute top-0 left-0 bg-squares-patterns w-full h-full flex flex-col items-center justify-center gap-10" >
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className="font-bold bg-gradient-to-r from-title-text-light to-title-text-dark text-transparent bg-clip-text leading-normal hover:tracking-wider transition-all duration-75"
-              onClick={opendNav}            
+              onClick={opendNav}
             >
               {link.text}
             </a>

@@ -53,3 +53,13 @@ html{
 .post h2 {
   @apply text-xl;
 }
+.post img{
+  @apply mx-auto rounded-lg;
+  max-width: 100%;
+  height: auto;
+
+}
+
+.post a {
+  @apply text-secondary hover:underline;
+}

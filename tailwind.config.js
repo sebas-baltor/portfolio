@@ -20,7 +20,7 @@ module.exports = {
         "gray-blue-bot":"#0C1431",
         "light":"#F5F8FF",
         "secondary":"#C5FF1E",
-        "secondary-contrast":"#9FD021",
+        "secondary-contrast":"#587111",
         "background":"#09122F"
       }
     },

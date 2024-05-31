@@ -5,10 +5,6 @@ import Skills from "@/components/home/Skills";
 import Experience from "@/components/home/Experience/Experience";
 import Contact from "@/components/home/Contact";
 import Footer from "@/components/Footer";
-import MainTitle from "@/components/const/MainTitle";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ weight: "900", subsets: ["latin"] });
 
 export default function Home() {
   return (

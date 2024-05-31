@@ -5,9 +5,9 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
 export default function Footer() {
   return (
-    <footer className="h-[10vh] bg-primary">
+    <footer className={`h-[10vh] bg-primary ${styles.paddings}`}>
       <div
-        className={`${styles.innerWidth} h-full mx-auto flex justify-between items-center text-light text-xl md:text-2xl px-4`}
+        className={`${styles.innerWidth} h-full mx-auto flex justify-between items-center text-light text-xl md:text-2xl`}
       >
         <span className={`text-xs`}>From MX to the 🗺️</span>
         <div className="flex gap-2">

@@ -3,7 +3,7 @@ import "../style/prism-lucario.css"
 
 import { Montserrat } from 'next/font/google'
 
-const montserrat = Montserrat({weight:"400",subsets:["latin"]});
+const montserrat = Montserrat({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
   title: 'Sebastián Baltazar',
@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='scroll-smooth'>
-      <body className={montserrat.className}>{children}</body>
+      <body className={montserrat.className}>
+        {children}
+      </body>
     </html>
   )
 }

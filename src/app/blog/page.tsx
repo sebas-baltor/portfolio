@@ -21,13 +21,13 @@ export default function Posts() {
             <Paragraph text="Here you will find the most recent posts I have written, I hope you like them but especially that they are useful." />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center'>
-            {posts.map((post, idx) => (
+            {posts.length > 0 ? (posts.map((post, idx) => (
               <PreviewPost
                 href={`blog/${post.url}`}
                 key={idx}
                 post={post}
               />
-            ))}
+            ))):(<div className="text-title-text-light font-bold text-3xl md:col-span-2 lg:col-span-3 text-center">🫠 Ooops! No posts Yet</div>)}
           </div>
         </div>
       </div>
