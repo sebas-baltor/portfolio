@@ -138,22 +138,22 @@ export async function POST(request: NextRequest) {
     attachments: [
       {
         filename: "logo.png",
-        path: "./logo.png",
+        path: "https://sebastian-baltazar.vercel.app/logo.png",
         cid: "logo",
       },
       {
         filename: "linkedin.png",
-        path: "./email/linkedin.png",
+        path: "https://sebastian-baltazar.vercel.app/email/linkedin.png",
         cid: "linkedin",
       },
       {
         filename: "github.png",
-        path: "./email/github.png",
+        path: "https://sebastian-baltazar.vercel.app/email/github.png",
         cid: "github",
       },
       {
         filename: "ex.png",
-        path: "./email/ex.png",
+        path: "https://sebastian-baltazar.vercel.app/email/ex.png",
         cid: "ex",
       },
       {
