@@ -158,7 +158,7 @@ export async function POST(request: NextRequest) {
       },
       {
         filename: "sheet.png",
-        path: "./public/email/sheet.png",
+        path: "https://sebastian-baltazar.vercel.app/sheet.png",
         cid: "blog",
       }
       
