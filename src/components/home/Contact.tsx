@@ -60,6 +60,7 @@ export default function Contact() {
                 setLoadingState({ isLoading: true, status: data.status });
                 if (data.status < 300) {
                   resetForm();
+                  setErrorForm("");
                 } else {
                   setErrorForm(data.message);
                 }
