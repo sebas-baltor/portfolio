@@ -47,7 +47,7 @@ export default function Contact() {
           })}
           onSubmit={async (values, { resetForm }) => {
             setLoadingState({ isLoading: true, status: null });
-            await fetch("http://localhost:3000/api/suscribe", {
+            await fetch("https://sebastian-baltazar.vercel.app/api/suscribe", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
