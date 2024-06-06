@@ -56,7 +56,7 @@ export default function Contact() {
             })
               .then((res) => res.json())
               .then((data) => {
-                console.log(data);
+                // console.log(data);
                 setLoadingState({ isLoading: true, status: data.status });
                 if (data.status < 300) {
                   resetForm();

@@ -138,22 +138,22 @@ export async function POST(request: NextRequest) {
     attachments: [
       {
         filename: "logo.png",
-        path: "./public/logo.png",
+        path: "./logo.png",
         cid: "logo",
       },
       {
         filename: "linkedin.png",
-        path: "./public/email/linkedin.png",
+        path: "./email/linkedin.png",
         cid: "linkedin",
       },
       {
         filename: "github.png",
-        path: "./public/email/github.png",
+        path: "./email/github.png",
         cid: "github",
       },
       {
         filename: "ex.png",
-        path: "./public/email/ex.png",
+        path: "./email/ex.png",
         cid: "ex",
       },
       {
