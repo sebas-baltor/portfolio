@@ -26,7 +26,7 @@ export default function PostPage({params}: { params: {slug: string} }) {
                         <div className="mb-3">
                         <Link href="/blog" className="text-xs text-title-text-light hover:text-secondary transition">👈 Go Back</Link>
                         </div>
-                        <h1 className={`font-black text-3xl md:text-4xl lg:text-6xl bg-gradient-to-r from-text-dark to-text-light text-transparent bg-clip-text leading-normal inline-block`}>{post?.title}</h1>
+                        <h1 className={`font-black text-3xl md:text-4xl lg:text-6xl bg-gradient-to-r from-text-dark to-text-light text-transparent bg-clip-text leading-normal inline-block text-pretty pb-3`}>{post?.title}</h1>
                         <div className="w-full flex justify-between items-center mt-3 gap-3">
                             <div className="flex gap-1 text-title-text-light items-end">
                                 <Image src={"/me.png"} alt={"me"} width={20} height={20}  className="rounded-full"/>
@@ -35,7 +35,7 @@ export default function PostPage({params}: { params: {slug: string} }) {
                             <small className="text-secondary">{post?.readingTime.text}</small>
                         </div>
                     </div>
-                    <div className="post text-title-text-light max-w-2xl mx-auto">
+                    <div className="post text-title-text-light max-w-2xl mx-auto leading-loose">
                         <Content components={mdxComponent}/>
                     </div>
                     {/* {post?.body ? <div className="text-white [&>*]:mb-3 [&>*:last-child]:mb-0 lg:w-1/2 lg:mx-auto"> </div>: <p>Post not found</p>} */}

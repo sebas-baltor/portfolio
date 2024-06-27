@@ -1,0 +1,390 @@
+---
+title: How to create a blog with Markdown and Next.js
+tags: nextjs, markdown, blog
+date: "06-19-2024"
+summary: This is more than a guide on how to create a blog with Markdown with Next.js based on my experience and a few resources I've found online. with the porpuse to explain the process and guide beginers to create their own blog.
+---
+
+# Why Markdown?
+
+When I started with the idea, the main problem to solve was: how to create a blog with zero database dependency? So I started to look for a solution and found Markdown. This is also the way most documentation is written, so it was a good way to solve my primary problem.
+![markdown](https://avatars.githubusercontent.com/u/37453691?v=4)
+
+Let me be clear: when you create a project, you opt for a database to store your data. This is not always a simple thing to do. For example, now while I'm writing this, I'm thinking about how the schema must be.
+
+__Post table:__ the main table that will store the posts with their fields
+__Tags table:__ tags that every post must have
+__Assets table:__ the images, videos, etc., that every post must have or their references
+In the long term, it is harder to maintain, and it can be as complex as you want. To me, the idea of writing a blog must be as simple as possible because it is text. The real problem is how to share the ideas correctly. Then you need to choose the DB to store your data, and this is another problem in production because locally you can start with a community edition of almost any DB, but in production, you need to pay for it at scale 😩. "I'm obviously referring to the free plan of every technology 🤌". The point is this project will be hosted on a free plan, and I don't want to pay for a DB or even maintain it.
+That was when Markdown came to my mind. After a bit of research and a lot of information, I found a good starting point, obviously this post 🫠, and the following resource in Spanish: [Cómo Crear un Blog con Next.js y Markdown](https://www.escuelafrontend.com/como-crear-un-blog-con-next-js)
+
+
+## I thought it will be easier than it was
+
+When I started, I thought, "Oh, what is the worst that can happen?" and then the problems appeared. The first one was how to read the files, the second one was how to render the information correctly, then how to create the routes, and finally how to style the code.
+
+# Start the project
+
+I chose Next.js for its easy deployment on Vercel, but the library I used to read Markdown files is [Contentlayer](https://contentlayer.dev/) 👀, which is compatible with other technologies.
+
+To create a new Next.js project, you can use the following command:
+
+```bash
+npx create-next-app@latest my-blog
+```
+
+I chose the src folder structure to organize the code, using TypeScript and Tailwind. The structure of the project is as follows:
+
+```bash
+├── node_modules
+│   ├── ...
+├── public
+│   └── vercel.svg
+├── src
+│   ├── app
+│   │   └── layout.tsx
+│   ├── └── page.tsx
+│   ├── └── favicon.ico
+│   ├── style
+├── .eslintrc.json
+├── .gitignore
+├── next-env.d.ts
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── README.md 
+├── tailwind.config.js
+└── tsconfig.json
+```
+
+We need more, but we will create it on the fly. So, let's start with the first step.
+
+To read the Markdown files, we will use the library [Contentlayer](https://contentlayer.dev/), which defines itself as "a content SDK that validates and transforms your content into type-safe JSON data you can easily import into your application."
+
+```bash
+npm install contentlayer next-contentlayer date-fns
+```
+
+* __contentlayer__ the main library
+* __next-contentlayer__ the library to use contentlayer with Next.js
+* __date-fns__ to format the date of the post
+
+# Configuration
+
+All this process is in the official documentation of the library, but I will explain it here.
+## next.config.js
+
+```javascript
+// import the library
+const {withContentlayer} = require('next-contentlayer');
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    appDir: true,
+    serverComponentsExternalPackages: ["mongoose"],
+  },
+  webpack(config) {
+    config.experiments = { ...config.experiments, topLevelAwait: true };
+    return config;
+  },
+};
+// wrap the configuration with the library
+module.exports = withContentlayer(nextConfig);
+```
+
+
+## tsconfig.json
+
+We have to create and alias for contentlayer and specify to compile
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    //  ^^^^^^^^^^^
+    "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"]
+      // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated"
+    // ^^^^^^^^^^^^^^^^^^^^^^
+  ]
+}
+```
+
+When we run `npm run dev`, the library will create a folder called `.contentlayer` with the generated files. We don't want to deploy this generated data because it will be generated in the build process. So, we have to add it to the `.gitignore` file.
+
+```gitignore
+# ...
+
+# contentlayer
+.contentlayer
+```
+
+## Post schema
+
+Finaly to specify the JSON schema of the post we have to edit the `contentlayer.schema.ts` file
+
+```typescript
+import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+// the schema itself
+export const Post = defineDocumentType(() => ({
+  name: 'Post',
+  filePathPattern: `**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    summary: { type: 'string', required: false },
+  },
+  computedFields: {
+    slug: { // this is the id of the post 
+      type: "string",
+      resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx/, ""),
+    },
+
+    // readingTime: { type: "json", resolve: (doc) => readingTime(doc.body.raw) }, // we will add it later
+  },
+}))
+
+export default makeSource({
+  contentDirPath: 'src/posts', documentTypes: [Post]
+})
+```
+
+Now you can run `npm run dev`, and the library will generate the files. You will see a new folder called `.contentlayer` when you open it, where the generated files are located. We don't need to modify these files, but we can view the data that the library is reading.
+
+**Before running `npm run dev`, you need to create a folder named `src/posts` and place the post files there.**
+Why `src/posts`? Because in the `contentlayer.schema.ts` file, we specify `contentDirPath` as `src/posts`, where you can place your .mdx files.
+
+
+### Adding Metadata to Your Post
+
+Sometimes in your post, you might want to include metadata such as tags, the author, or a cover image. I've decided to include the reading time for the post. Here's how you can add this metadata to the schema. First, we need to install the `reading-time` library to calculate the time required to read the post.
+
+```bash
+npm install reading-time
+```
+
+Then, in the `contentlayer.schema.ts` file, we need to import the library and add the field to the schema.
+```typescript
+// import { defineDocument...
+import readingTime from 'reading-time';
+
+export const Post = defineDocumentType(() => ({
+  name: 'Post',
+  filePathPattern: `**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    summary: { type: 'string', required: false },
+  },
+  computedFields: {
+    slug: { // this is the id of the post 
+      type: "string",
+      resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx/, ""),
+    },
+
+    readingTime: { type: "json", resolve: (doc) => readingTime(doc.body.raw) }, // we will add it later
+  },
+}))
+
+// export default makeSour...
+```
+
+## Rendering Posts Data
+
+Now comes the exciting part: rendering the data on the page. We have our data in JSON format, but we need to display it. The approach I took involves using nested routes within my `src/app` directory, but not at the root level because my landing page resides there. You can visit the landing page by navigating to `/` in your browser.
+
+So, my `app` folder structure looks like this:
+
+```bash
+├── app
+│   ├── layout.tsx  # the layout of my landing
+│   ├── page.tsx    # the landing page
+│   ├── favicon.ico 
+│   ├── blog     
+│   │   ├── post    
+│   │   │   └── page.tsx
+│   │   │   ├── [slug]
+│   │   │   │   ├── page.tsx
+```
+
+The `src/app/blog/post/page.tsx` is the page you saw before this one. This is where I render all the posts I have created. I won't delve into the details of styling, as I believe that's a personal preference, but I will show you how to render the data.
+
+```tsx
+// more imports ...
+import { allPosts } from "contentlayer/generated";
+
+export default function Posts() {
+  const posts = allPosts;
+  return (
+    // content ...
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center'>
+            {posts.length > 0 ? (posts.map((post, idx) => (
+              <PreviewPost
+                href={`blog/${post.url}`}
+                key={idx}
+                post={post}
+              />
+            ))):(<div className="text-title-text-light font-bold text-3xl md:col-span-2 lg:col-span-3 text-center">🫠 Ooops! No posts Yet</div>)}
+        </div>
+    // content ...
+  );
+}
+```
+
+The `allPosts` variable is generated by the library and contains all the posts we have created. Essentially, what I do here is iterate through each post and render a custom component. This component passes the post's slug through the browser URL as an identifier. Why use slug instead of id? Both serve the same purpose, but I followed a tutorial that used slug, so I opted for that convention. In Next.js, using "slug" or "id" helps identify specific items. You can learn more about dynamic routes [here](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes).
+```bash
+├── blog     
+│   ├── post    
+│   │   └── page.tsx
+│   │   ├── [slug]
+│   │   │   ├── page.tsx
+```
+
+Why don't I use **getStaticPaths** and **getStaticProps**? Simply put, I didn't want to prefetch or prerender anything at this stage. Perhaps I'll change this approach in the future, who knows 🙃.
+
+Next, for the post itself, we need to create the `src/app/blog/post/[slug]/page.tsx` file.
+
+```tsx
+// more imports ...
+import { Post, allPosts } from "contentlayer/generated"
+import {useMDXComponent} from "next-contentlayer/hooks";
+
+export default function PostPage({params}: { params: {slug: string} }) {
+    const post = allPosts.find((post) => post.slug === params.slug) as Post;
+    const Content = useMDXComponent(post.body.code)
+
+    return (
+        <article className="...">
+            <Content components={mdxComponent}/>
+        </article>
+    );
+}
+```
+Here's what I do: I locate the post using its slug and then render it using the `useMDXComponent` hook provided by the library. The `mdxComponent` object contains components that the post can utilize, such as `h1`, `h2`, `h3`, `p`, `img`, etc.
+
+And that's how you can create a blog with Markdown using Next.js. But this isn't the end of the journey. With this code, you can create an `.mdx` file, render the JSON generated by the library, and display the post in the browser. However, you can further enhance your blog by styling it and adding plugins to the library for additional features like syntax highlighting, a table of contents, and more.
+
+# The Cherry on Top
+
+There are numerous plugins available that can enhance the UI and UX of your blog. You can explore more plugins in the [Rehypejs repository](https://github.com/rehypejs/rehype?tab=readme-ov-file) under the "List of Plugins" section.
+
+Here are some plugins that I've used:
+
+- **remark-slug**: Adds an ID to headers.
+- **rehype-autolink-headings**: Adds a link to headers.
+- **rehype-prism**: Adds syntax highlighting to code blocks.
+- **remark-gfm**: Adds support for GitHub Flavored Markdown.
+
+To integrate these plugins into your project, you need to install them using the following command:
+
+```bash
+    npm install remark-slug rehype-autolink-headings rehype-prism -D
+```
+
+Then you have to add them to the `contentlayer.schema.ts` file
+
+```typescript
+// ... post schema definition
+
+export default makeSource({
+  contentDirPath: 'src/posts', documentTypes: [Post]
+  , mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      rehypePrism,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ['anchor']
+          }
+        }
+      ]
+    ],
+  }
+})
+```
+
+## Styling the Code Blocks
+
+You can visit the [Prismjs page](https://prismjs.com/) to explore themes and supported languages, or go directly to the [GitHub repository](https://github.com/PrismJS/prism-themes) to download your preferred theme. Save the theme in `src/style` in my case.
+
+I don't recall exactly where I read this, but all your themes must include the following CSS code:
+
+```css
+pre {
+  overflow-x: auto;
+}
+
+.code-highlight {
+  float: left; 
+  min-width: 100%; 
+}
+
+.code-line {
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left: 4px solid rgba(0, 0, 0, 0); 
+}
+
+.code-line.inserted {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.code-line.deleted {
+  background-color: rgba(239, 68, 68, 0.2); 
+}
+
+.highlight-line {
+  margin-left: -16px;
+  margin-right: -16px;
+  background-color: rgba(55, 65, 81, 0.5); 
+  border-left: 4px solid rgb(59, 130, 246);
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  color: rgb(156, 163, 175);
+  content: attr(line);
+}
+
+/* then your theme*/
+```
+
+then you have to import the theme where you want to use it in my case I import it in the `src/app/layout.tsx`
+
+```tsx
+import "../style/prism-lucario.css"
+```
+> **Note:**
+> don't forget to add the language you're writhing on you block code in your .mdx file for example if you're writhing JavaScript you have to add the following code to the block code
+
+```md
+javascript
+    console.log("Hello World")
+```
+
+# Conclusion
+
+This guide explains how I created my blog using Markdown and Next.js. It's based on a tutorial, but its main purpose is to help you get started and understand what tools to use to create your own blog. **If any part of this guide doesn't work for you, please refer to the official documentation of the libraries and technologies I've used.**
+
+I hope this guide helps you create your own blog and share your ideas with the world. If you'd like to contact me, you can visit my landing page and send me a message.
