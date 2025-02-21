@@ -1,3 +1,4 @@
+import { use } from "react";
 import styles from "@/style"
 import Footer from "@/components/Footer"
 import { Post, allPosts } from "contentlayer/generated"
@@ -9,7 +10,8 @@ import {useMDXComponent} from "next-contentlayer/hooks";
 const mdxComponent = {
     Image
 }
-export default function PostPage({params}: { params: {slug: string} }) {
+export default function PostPage(props: { params: Promise<{slug: string}> }) {
+    const params = use(props.params);
     const post = allPosts.find((post) => post.slug === params.slug) as Post;
     const Content = useMDXComponent(post.body.code)
 
