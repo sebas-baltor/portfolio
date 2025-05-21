@@ -1,11 +1,13 @@
+// "use client"
 import { use } from "react";
 import styles from "@/style"
 import Footer from "@/components/Footer"
-import { Post, allPosts } from "contentlayer/generated"
+import {Post, allPosts} from "contentlayer/generated"
+// import { Post, allPosts } from "contentlayer/generated"
 import Link from "next/link"
 import Image from "next/image"
 import { format, parseISO } from "date-fns"
-import {useMDXComponent} from "next-contentlayer/hooks";
+import {useMDXComponent} from "next-contentlayer2/hooks";
 
 const mdxComponent = {
     Image

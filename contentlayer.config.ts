@@ -1,5 +1,5 @@
 // contentlayer.config.ts
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { defineDocumentType, makeSource } from 'contentlayer2/source-files'
 import readingTime from 'reading-time';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -27,10 +27,10 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: 'src/posts', documentTypes: [Post]
   , mdx: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm as any],
     rehypePlugins: [
       rehypeSlug,
-      rehypePrism,
+      rehypePrism as any,
       [
         rehypeAutolinkHeadings,
         {
