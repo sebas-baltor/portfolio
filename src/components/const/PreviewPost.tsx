@@ -1,6 +1,6 @@
 import Paragraph from "./Paragraph"
 import Link from "next/link"
-import {Post} from "contentlayer/generated";
+import { Post } from "contentlayer/generated";
 import {format, parseISO} from "date-fns";
 export default function PreviewPost({ href, className, post }: { href: string, className?: string, post:Post }) {
     return (

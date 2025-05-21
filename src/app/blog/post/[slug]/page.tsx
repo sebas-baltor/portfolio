@@ -2,8 +2,7 @@
 import { use } from "react";
 import styles from "@/style"
 import Footer from "@/components/Footer"
-import {Post, allPosts} from "contentlayer/generated"
-// import { Post, allPosts } from "contentlayer/generated"
+import { Post,allPosts } from "contentlayer/generated";
 import Link from "next/link"
 import Image from "next/image"
 import { format, parseISO } from "date-fns"
