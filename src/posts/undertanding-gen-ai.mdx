@@ -1,0 +1,82 @@
+---
+title: All you need to know to understand the basics of Gen AI
+tags: [gen-ai, ai, artificial-intelligence, generative-ai, destiled-model, multimodal-model, foundational-model, prompt-engineering]
+date: "06-22-2025"
+summary: This is a walkthrough on the basics of Generative AI, including its applications, benefits, and challenges.
+---
+
+# Understanding Generative AI
+
+Generative AI refers to a class of artificial intelligence models that can generate new content, such as text, images, music, and more. These models learn patterns from existing data and use that knowledge to create new, similar content.
+
+## What is an LLM?
+A Large Language Model (LLM) is a type of generative AI model specifically designed to understand and generate human language. LLMs are trained on vast amounts of text data, allowing them to perform tasks such as text generation, translation, summarization, and question-answering. They can generate coherent and contextually relevant text based on the input they receive.
+
+## What are the components of an LLM?
+An LLM typically consists of several key components:
+- **Tokenization**: The process of breaking down text into smaller units (tokens) that the model can understand. Tokens can be words, subwords, or characters.
+- **Embedding**: A technique that converts tokens into numerical vectors, allowing the model to process and understand the relationships between them.
+- **Transformer Architecture**: The underlying architecture of most LLMs, which uses self-attention mechanisms to capture the context and relationships between tokens in a sequence.
+- **Training Data**: A large and diverse dataset used to train the model, enabling it to learn language patterns, grammar, and context.
+- **Fine-tuning**: The process of adapting a pre-trained LLM to specific tasks or domains by training it further on a smaller, task-specific dataset.
+
+*![Inside of LLM](https://media.geeksforgeeks.org/wp-content/uploads/20240826180729/Exploring-the-Technical-Architecture-Behind-Modern-Language-Models.png)*
+
+## What is a foundational model?
+
+A foundational model is a type of AI model that serves as a base for building more specialized models. These models are trained on large datasets and can be fine-tuned for specific tasks or applications. Examples include GPT-3 for text generation and DALL-E for image creation. 
+
+## What is a multimodal model?
+
+A multimodal model is an AI model that can process and generate content across multiple modalities, such as text, images, and audio. These models can understand and create content that combines different types of data, enabling more complex interactions and applications. Examples include OpenAI's GPT-4, which can handle both text and image inputs.
+
+## What is a distilled model?
+
+A distilled model is a smaller, more efficient version of a larger AI model. Distillation involves training a smaller model to mimic the behavior of a larger model, retaining much of its performance while reducing computational requirements. This makes it easier to deploy and use in resource-constrained environments like your own computer. One of the most famous example is Deepseek-R1.
+
+### How you can run your own distilled model?
+To run your own distilled model, you can use libraries like Hugging Face Transformers, also you can use tools to create your own server and test different model stored in Hugging Face, such as:
+- **[Ollama](https://ollama.com/)**: A platform that allows you to run and test various AI models, including distilled models, on your own server. It provides CLI tools for interacting with models and testing their capabilities.
+- **[LM Studio](https://lmstudio.ai/)**: A desktop application that allows you to run and test AI models locally. It supports various models and provides a simple interface for experimentation.
+- **[Pinokio](https://pinokio-home.netlify.app/)**: Pinokio is a browser that lets you install, run, and manage ANY server application, locally.
+## What is a finetuned model?
+
+A finetuned model is a pre-trained AI model that has been further trained on a specific dataset or task to improve its performance in that area. This process involves taking a model that has already learned general patterns from a large dataset and adjusting it to better suit a particular application or domain. Finetuning can lead to significant improvements in accuracy and relevance for specialized tasks.
+
+## Prompt engineering
+
+Prompt engineering is the process of designing and refining input prompts to optimize the performance of generative AI models. It involves crafting specific questions or instructions that guide the model to produce desired outputs. Effective prompt engineering can significantly improve the quality and relevance of the generated content.  
+The best way to get the best posible output is by using some prompt engineering techniques, such as:
+- **Zero-shot prompting**: Asking the model to perform a task without any prior examples.
+- **Few-shot prompting**: Providing a few examples to guide the model's response.
+- **Chain-of-thought (CoT) prompting**: Encouraging the model to think step-by-step through a problem.
+- **Retrieval-augmented generation (RAG)**: Combining the model's generative capabilities with external knowledge sources to enhance accuracy and relevance.
+Here is a great resource to learn more about prompt engineering: [Prompt Engineering Guide](https://www.promptingguide.ai/).
+
+## What is a Context Window?
+The context window refers to the amount of text that a generative AI model can consider at once when generating responses. It is the maximum number of tokens (words or subwords) that the model can process in a single input. The size of the context window varies among models, with larger models typically having larger context windows, allowing them to understand and generate more coherent and contextually relevant responses.
+
+## Applications of Generative AI
+
+Generative AI has a wide range of applications, including:
+
+- **Content Creation**: Automating the generation of articles, blog posts, and marketing copy.
+- **Image Generation**: Creating realistic images or art based on textual descriptions.
+- **Music Composition**: Composing original music tracks in various styles.
+- **Game Development**: Generating game assets, levels, and narratives.
+
+## Benefits of Generative AI
+
+Some key benefits of generative AI include:
+
+- **Increased Efficiency**: Automating repetitive tasks and speeding up the creative process.
+- **Enhanced Creativity**: Providing new ideas and inspiration for creators.
+- **Personalization**: Tailoring content to individual preferences and needs.
+
+## Challenges of Generative AI
+
+Despite its potential, generative AI also faces several challenges:
+
+- **Quality Control**: Ensuring the generated content meets quality standards.
+- **Ethical Concerns**: Addressing issues related to copyright, misinformation, and bias.
+- **Technical Limitations**: Overcoming the constraints of current AI models and training data.
