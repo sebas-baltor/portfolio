@@ -38,7 +38,7 @@ export default function PostPage(props: { params: Promise<{slug: string}> }) {
                             <small className="text-secondary">{post?.readingTime.text}</small>
                         </div>
                     </div>
-                    <div className="post text-title-text-light max-w-2xl mx-auto leading-loose">
+                    <div className="post text-title-text-light w-full max-w-2xl mx-auto leading-loose">
                         <Content components={mdxComponent}/>
                     </div>
                     {/* {post?.body ? <div className="text-white [&>*]:mb-3 [&>*:last-child]:mb-0 lg:w-1/2 lg:mx-auto"> </div>: <p>Post not found</p>} */}
