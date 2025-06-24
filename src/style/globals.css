@@ -12,12 +12,12 @@ html{
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C5FF1E;
+  @apply bg-secondary;
   -webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-corner {
-  background: #C5FF1E;
+  @apply bg-secondary;
 }
 
 .bg-glows {
