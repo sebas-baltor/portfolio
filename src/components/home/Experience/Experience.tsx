@@ -1,6 +1,7 @@
 import ExperienceCard from "./ExperienceCard";
 import { TypingText } from "@/components/const/TypingText";
 import TimelineItem from "./TimelineItem";
+import styles from "@/style";
 
 const projects = [
   {
@@ -30,13 +31,16 @@ const projects = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-16 bg-background">
-      <div className="container mx-auto px-4">
-        <TypingText title="Experience" />
-        <div className="mt-10 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, idx) => (
-            <TimelineItem key={idx} {...project} />
-          ))}
+    <section id="skills" className={`w-full relative overflow-hidden`}>
+      <div className={`${styles.paddings}`}>
+        <div className={`${styles.innerWidth} mx-auto relative z-10`}>
+          <TypingText title="Experience" />
+          {/* <div className="mt-10 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"> */}
+          <div className="border-l-2 border-secondary ml-5 mt-8 relative">
+            {projects.map((project, idx) => (
+              <TimelineItem key={idx} {...project} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

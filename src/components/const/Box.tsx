@@ -1,7 +1,7 @@
 import Paragraph from "./Paragraph"
 export default function Box({className,title,paragraphs,imgSrc}:{className?:string,title:string,paragraphs:string[],imgSrc?:string}) {
     return (  
-        <div className={`${className} rounded-2xl bg-gradient-to-bl from-gray-blue-bot/5 to-gray-blue-top shadow-lg p-8 overflow-hidden relative border border-gray-blue-top`}>
+        <div className={`${className} rounded-2xl bg-gradient-to-bl from-gray-blue-bot/5 to-gray-blue-top shadow-lg p-8 overflow-hidden relative border-2 border-gray-blue-top`}>
             <h5 className="font-black text-3xl text-secondary mb-3">{title}</h5>
             {paragraphs.map((text,index)=><Paragraph key={index} text={text}/>)}
             {imgSrc && <img src={imgSrc} alt="img" className="mt-3 rounded-2xl overflow-hidden"/>}

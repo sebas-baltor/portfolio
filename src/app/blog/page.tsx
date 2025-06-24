@@ -17,7 +17,7 @@ export default function Posts() {
         >
           <div>
             <Link href="/" className="text-xs text-title-text-light hover:text-secondary transition">👈 Go Back Home</Link>
-            <MainTitle grayText="Mi" highlightText="Blog"/>
+            <MainTitle grayText="My" highlightText="Blog"/>
             <Paragraph text="Here you will find the most recent posts I have written, I hope you like them." />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center'>
