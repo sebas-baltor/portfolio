@@ -1,5 +1,6 @@
 import ExperienceCard from "./ExperienceCard";
 import { TypingText } from "@/components/const/TypingText";
+import TimelineItem from "./TimelineItem";
 
 const projects = [
   {
@@ -34,7 +35,7 @@ export default function Experience() {
         <TypingText title="Experience" />
         <div className="mt-10 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, idx) => (
-            <ExperienceCard key={idx} {...project} />
+            <TimelineItem key={idx} {...project} />
           ))}
         </div>
       </div>
